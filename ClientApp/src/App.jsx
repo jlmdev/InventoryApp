@@ -8,6 +8,12 @@ import { Servers } from './pages/Servers'
 import { SingleServer } from './pages/SingleServer'
 import { NetworkDevices } from './pages/NetworkDevices'
 import { SingleNetworkDevice } from './pages/SingleNetworkDevice'
+import { DeviceUsers } from './pages/DeviceUsers'
+import { SingleDeviceUser } from './pages/SingleDeviceUser'
+import { Locations } from './pages/Locations'
+import { SingleLocation } from './pages/SingleLocation'
+import { Users } from './pages/Users'
+import { SingleUser } from './pages/SingleUser'
 
 export function App() {
   return (
@@ -78,6 +84,24 @@ export function App() {
         </Route>
         <Route exact path="/network-devices/single-network-device">
           <SingleNetworkDevice />
+        </Route>
+        <Route exact path="/device-users">
+          <DeviceUsers />
+        </Route>
+        <Route exact path="/device-users/single-device-user">
+          <SingleDeviceUser />
+        </Route>
+        <Route exact path="/locations">
+          <Locations />
+        </Route>
+        <Route exact path="/locations/single-location">
+          <SingleLocation />
+        </Route>
+        <Route exact path="/users">
+          <Users />
+        </Route>
+        <Route exact path="/users/single-user">
+          <SingleUser />
         </Route>
       </Switch>
     </>

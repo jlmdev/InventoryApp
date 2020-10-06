@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Workstations() {
+export function Locations() {
   return (
     <>
       <div>

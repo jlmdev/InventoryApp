@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function Workstations() {
+export function Users() {
   return (
     <>
       <div>
