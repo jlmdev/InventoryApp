@@ -10,10 +10,10 @@ export function SingleLocation() {
               <a href="#">Home</a>
             </li>
             <li className="breadcrumb-item">
-              <a href="#">Workstations</a>
+              <a href="#">Locations</a>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
-              Single Workstation
+              Single Location
             </li>
           </ol>
         </nav>
@@ -36,143 +36,74 @@ export function SingleLocation() {
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Serial Number
+              Street 1
             </span>
           </div>
           <input
             type="text"
             className="form-control"
-            placeholder="Serial Number"
-            aria-label="Serial Number"
+            placeholder="Street 1"
+            aria-label="Street 1"
             aria-describedby="basic-addon1"
           />
         </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Date Acquired
+              Street 2
             </span>
           </div>
           <input
             type="text"
             className="form-control"
-            placeholder="Date Acquired"
-            aria-label="Date Acquired"
+            placeholder="Street 2"
+            aria-label="Street 2"
             aria-describedby="basic-addon1"
           />
         </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Type
+              City
             </span>
           </div>
           <input
             type="text"
             className="form-control"
-            placeholder="Type"
-            aria-label="Type"
+            placeholder="City"
+            aria-label="City"
             aria-describedby="basic-addon1"
           />
         </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Assigned To
+              State
             </span>
           </div>
           <input
             type="text"
             className="form-control"
-            placeholder="Assigned To"
-            aria-label="Assigned To"
+            placeholder="State"
+            aria-label="State"
             aria-describedby="basic-addon1"
           />
         </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Location
+              ZIP
             </span>
           </div>
           <input
             type="text"
             className="form-control"
-            placeholder="Location"
-            aria-label="Location"
+            placeholder="ZIP"
+            aria-label="ZIP"
             aria-describedby="basic-addon1"
           />
         </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              OS
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="OS"
-            aria-label="OS"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Processor
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Processor"
-            aria-label="Processor"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Last updated
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Last updated"
-            aria-label="Last updated"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Active
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Active"
-            aria-label="Active"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Description
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Description"
-            aria-label="Description"
-            aria-describedby="basic-addon1"
-          />
-        </div>
+
         <button type="button" className="btn btn-success btn-lg btn-block">
           Save Changes
         </button>
