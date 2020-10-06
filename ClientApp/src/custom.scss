@@ -18,6 +18,9 @@ header {
   justify-content: space-between;
   align-items: center;
   background-color: whitesmoke;
+  width: 100vw;
+  position: fixed;
+  z-index: 2;
 }
 
 header ul {
@@ -40,6 +43,14 @@ header ul li {
 header ul li svg {
   display: block;
 }
+
+.header-spacer {
+  height: 50px;
+}
+
+// .scroll-container {
+//   overflow-y: scroll;
+// }
 
 .button-group {
   display: flex;
