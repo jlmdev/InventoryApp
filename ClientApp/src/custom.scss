@@ -59,8 +59,13 @@ header ul li svg {
   width: 100vw;
 }
 
-.button-group button {
+.button-group a {
   width: 90%;
+  padding-bottom: 10px;
+}
+
+.button-group button {
+  width: 100%;
 }
 
 .input-group-prepend {
