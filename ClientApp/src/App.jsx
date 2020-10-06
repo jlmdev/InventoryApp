@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import './custom.scss'
 import { Home } from './pages/Home'
+import { SingleWorkstation } from './pages/SingleWorkstation'
 import { Workstations } from './pages/Workstations'
 
 export function App() {
@@ -58,6 +59,9 @@ export function App() {
         </Route>
         <Route exact path="/workstations">
           <Workstations />
+        </Route>
+        <Route exact path="/workstations/single-workstation">
+          <SingleWorkstation />
         </Route>
       </Switch>
     </>
