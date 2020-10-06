@@ -1,5 +1,8 @@
 import React from 'react'
+import { Link, Route, Switch } from 'react-router-dom'
 import './custom.scss'
+import { Home } from './pages/Home'
+import { Workstations } from './pages/Workstations'
 
 export function App() {
   return (
@@ -48,9 +51,15 @@ export function App() {
           </li>
         </ul>
       </header>
-      <div className="d-flex justify-content-center display-2">
-        Hello, World!
-      </div>
+
+      <Switch>
+        <Route exact path="/">
+          <Home />
+        </Route>
+        <Route exact path="/workstations">
+          <Workstations />
+        </Route>
+      </Switch>
     </>
   )
 }
