@@ -24,10 +24,18 @@ header ul {
   align-items: center;
   border: 1px solid green;
   height: 50px;
+  margin-top: 8px;
+  margin-bottom: 8px;
 }
 
 header ul li {
   list-style: none;
-  display: block;
+  display: flex;
+  align-items: center;
   border: 1px solid blue;
+  margin-right: 20px;
+}
+
+header ul li svg {
+  display: block;
 }

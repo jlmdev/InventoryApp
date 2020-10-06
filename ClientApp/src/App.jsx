@@ -25,6 +25,7 @@ export function App() {
               />
             </svg>
           </li>
+          <li>Inventory</li>
         </ul>
       </header>
       <div className="d-flex justify-content-center display-2">
