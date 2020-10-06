@@ -10,17 +10,20 @@ export function DeviceUsers() {
               <a href="#">Home</a>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
-              Workstations
+              Device Users
             </li>
           </ol>
         </nav>
       </div>
       <div className="button-group">
         <button type="button" className="btn btn-primary btn-lg btn-block">
-          Server
+          Search
+        </button>
+        <button type="button" className="btn btn-primary btn-lg btn-block">
+          Create New User
         </button>
         <button type="button" className="btn btn-secondary btn-lg btn-block">
-          Server
+          Device User
         </button>
       </div>
     </>

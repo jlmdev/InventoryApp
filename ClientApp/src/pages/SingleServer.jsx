@@ -10,10 +10,10 @@ export function SingleServer() {
               <a href="#">Home</a>
             </li>
             <li className="breadcrumb-item">
-              <a href="#">Workstations</a>
+              <a href="#">Servers</a>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
-              Single Workstation
+              Single Server
             </li>
           </ol>
         </nav>
@@ -75,20 +75,7 @@ export function SingleServer() {
             aria-describedby="basic-addon1"
           />
         </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Assigned To
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Assigned To"
-            aria-label="Assigned To"
-            aria-describedby="basic-addon1"
-          />
-        </div>
+
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
@@ -156,6 +143,48 @@ export function SingleServer() {
             className="form-control"
             placeholder="Active"
             aria-label="Active"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1">
+              IP
+            </span>
+          </div>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="IP"
+            aria-label="IP"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1">
+              Subnet
+            </span>
+          </div>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Subnet"
+            aria-label="Subnet"
+            aria-describedby="basic-addon1"
+          />
+        </div>
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1">
+              Gateway
+            </span>
+          </div>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Gateway"
+            aria-label="Gateway"
             aria-describedby="basic-addon1"
           />
         </div>

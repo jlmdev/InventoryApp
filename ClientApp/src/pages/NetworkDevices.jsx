@@ -10,7 +10,7 @@ export function NetworkDevices() {
               <a href="#">Home</a>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
-              Workstations
+              Network Devices
             </li>
           </ol>
         </nav>

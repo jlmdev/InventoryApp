@@ -19,6 +19,9 @@ export function Workstations() {
         <button type="button" className="btn btn-primary btn-lg btn-block">
           Search
         </button>
+        <button type="button" className="btn btn-primary btn-lg btn-block">
+          Create New Workstation
+        </button>
         <button type="button" className="btn btn-secondary btn-lg btn-block">
           Workstation
         </button>

@@ -22,126 +22,28 @@ export function SingleDeviceUser() {
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Name
+              First Name
             </span>
           </div>
           <input
             type="text"
             className="form-control"
-            placeholder="Name"
-            aria-label="Name"
+            placeholder="First Name"
+            aria-label="First Name"
             aria-describedby="basic-addon1"
           />
         </div>
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Serial Number
+              Last Name
             </span>
           </div>
           <input
             type="text"
             className="form-control"
-            placeholder="Serial Number"
-            aria-label="Serial Number"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Date Acquired
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Date Acquired"
-            aria-label="Date Acquired"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Type
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Type"
-            aria-label="Type"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Assigned To
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Assigned To"
-            aria-label="Assigned To"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Location
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Location"
-            aria-label="Location"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              OS
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="OS"
-            aria-label="OS"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Processor
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Processor"
-            aria-label="Processor"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Last updated
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Last updated"
-            aria-label="Last updated"
+            placeholder="Last Name"
+            aria-label="Last Name"
             aria-describedby="basic-addon1"
           />
         </div>
@@ -159,20 +61,7 @@ export function SingleDeviceUser() {
             aria-describedby="basic-addon1"
           />
         </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Description
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Description"
-            aria-label="Description"
-            aria-describedby="basic-addon1"
-          />
-        </div>
+
         <button type="button" className="btn btn-success btn-lg btn-block">
           Save Changes
         </button>
