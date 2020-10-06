@@ -17,10 +17,10 @@ export function Workstations() {
       </div>
       <div className="button-group">
         <button type="button" className="btn btn-primary btn-lg btn-block">
-          Server
+          Search
         </button>
         <button type="button" className="btn btn-secondary btn-lg btn-block">
-          Server
+          Workstation
         </button>
       </div>
     </>

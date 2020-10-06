@@ -1,6 +1,6 @@
 import React from 'react'
 
-export function SingleWorkstation() {
+export function SingleNetworkDevice() {
   return (
     <>
       <div>

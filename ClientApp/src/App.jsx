@@ -4,6 +4,10 @@ import './custom.scss'
 import { Home } from './pages/Home'
 import { SingleWorkstation } from './pages/SingleWorkstation'
 import { Workstations } from './pages/Workstations'
+import { Servers } from './pages/Servers'
+import { SingleServer } from './pages/SingleServer'
+import { NetworkDevices } from './pages/NetworkDevices'
+import { SingleNetworkDevice } from './pages/SingleNetworkDevice'
 
 export function App() {
   return (
@@ -62,6 +66,18 @@ export function App() {
         </Route>
         <Route exact path="/workstations/single-workstation">
           <SingleWorkstation />
+        </Route>
+        <Route exact path="/servers">
+          <Servers />
+        </Route>
+        <Route exact path="/servers/single-server">
+          <SingleServer />
+        </Route>
+        <Route exact path="/network-devices">
+          <NetworkDevices />
+        </Route>
+        <Route exact path="/network-devices/single-network-device">
+          <SingleNetworkDevice />
         </Route>
       </Switch>
     </>
