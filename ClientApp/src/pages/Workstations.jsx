@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 export function Workstations() {
   return (
     <>
-      <div>
+      {/* Breadcrumb code */}
+      {/* <div>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
@@ -15,13 +16,22 @@ export function Workstations() {
             </li>
           </ol>
         </nav>
-      </div>
+      </div> */}
       <div className="button-group">
-        <Link to="/workstations/single-workstation">
-          <button type="button" className="btn btn-primary btn-lg btn-block">
-            Search
-          </button>
-        </Link>
+        <div className="input-group mb-3">
+          <div className="input-group-prepend">
+            <span className="input-group-text" id="basic-addon1">
+              Search
+            </span>
+          </div>
+          <input
+            type="text"
+            className="form-control"
+            placeholder="Search Term"
+            aria-label="Search Term"
+            aria-describedby="basic-addon1"
+          />
+        </div>
         <Link to="/workstations/single-workstation">
           <button type="button" className="btn btn-primary btn-lg btn-block">
             Create New Workstation

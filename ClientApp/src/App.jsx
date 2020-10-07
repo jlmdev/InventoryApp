@@ -70,10 +70,10 @@ export function App() {
       <div className="header-spacer"></div>
 
       <Switch>
-        <Route exact path="/">
+        {/* <Route exact path="/">
           <Home />
-        </Route>
-        <Route exact path="/workstations">
+        </Route> */}
+        <Route exact path="/">
           <Workstations />
         </Route>
         <Route exact path="/workstations/single-workstation">
