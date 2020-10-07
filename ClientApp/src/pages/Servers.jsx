@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export function Servers() {
   return (
@@ -16,15 +17,21 @@ export function Servers() {
         </nav>
       </div>
       <div className="button-group">
-        <button type="button" className="btn btn-primary btn-lg btn-block">
-          Search
-        </button>
-        <button type="button" className="btn btn-primary btn-lg btn-block">
-          Create New Server
-        </button>
-        <button type="button" className="btn btn-secondary btn-lg btn-block">
-          Server
-        </button>
+        <Link to="/servers/single-server">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            Search
+          </button>
+        </Link>
+        <Link to="/servers/single-server">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            Create New Server
+          </button>
+        </Link>
+        <Link to="/servers/single-server">
+          <button type="button" className="btn btn-secondary btn-lg btn-block">
+            Server
+          </button>
+        </Link>
       </div>
     </>
   )
