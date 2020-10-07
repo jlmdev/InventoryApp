@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export function DeviceUsers() {
   return (
@@ -16,15 +17,21 @@ export function DeviceUsers() {
         </nav>
       </div>
       <div className="button-group">
-        <button type="button" className="btn btn-primary btn-lg btn-block">
-          Search
-        </button>
-        <button type="button" className="btn btn-primary btn-lg btn-block">
-          Create New User
-        </button>
-        <button type="button" className="btn btn-secondary btn-lg btn-block">
-          Device User
-        </button>
+        <Link to="/device-users/single-device-user">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            Search
+          </button>
+        </Link>
+        <Link to="/device-users/single-device-user">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            Create New User
+          </button>
+        </Link>
+        <Link to="/device-users/single-device-user">
+          <button type="button" className="btn btn-secondary btn-lg btn-block">
+            Device User
+          </button>
+        </Link>
       </div>
     </>
   )
