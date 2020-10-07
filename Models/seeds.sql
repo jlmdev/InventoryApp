@@ -1,0 +1,10 @@
+TRUNCATE TABLE "Workstations";
+
+INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "Active", "LastUpdate", "Type") VALUES ('Desktop 1', '12345', '2015-06-30', 'Conference Room Desktop', 'i7', 'Windows 10', 'true', '2020-09-15', 'Desktop');
+INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "Active", "LastUpdate", "Type") VALUES ('Desktop 2', '23456ERTY', '2018-07-15', 'James Desktop', 'i5', 'Windows 10', 'true', '2020-09-15', 'Desktop');
+INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "Active", "LastUpdate", "Type") VALUES ('Desktop 3', '3457rtydfh', '2019-09-10', 'Alice Desktop', 'i3', 'Windows 10', 'false', '2019-08-15', 'Desktop');
+INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "Active", "LastUpdate", "Type") VALUES ('Laptop 1', '224356734', '2020-07-13', 'Nathan Laptop', 'i7', 'Windows 10', 'true', '2020-09-15', 'Laptop');
+INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "Active", "LastUpdate", "Type") VALUES ('Laptop 2', '45i825gsd', '2017-12-10', 'Josh Mac', 'i7', 'MacOS', 'true', '2020-09-15', 'Laptop');
+INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "Active", "LastUpdate", "Type") VALUES ('Laptop 3', '347sdh', '2019-05-16', 'Samantha Laptop', 'i3', 'Windows 10', 'true', '2020-03-15', 'Laptop');
+INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "Active", "LastUpdate", "Type") VALUES ('Desktop 4', '2457xcvn', '2018-01-20', 'Jennifer Desktop', 'i7', 'Windows 10', 'true', '2020-09-15', 'Desktop');
+INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "Active", "LastUpdate", "Type") VALUES ('Desktop 5', '87645hjkl', '2020-10-11', 'Lauren Desktop', 'i5', 'Windows 10', 'true', '2020-09-15', 'Desktop');

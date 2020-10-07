@@ -14,7 +14,7 @@ namespace InventoryApp.Models
         private static bool LOG_SQL_STATEMENTS_IN_DEVELOPMENT = false;
 
         // Add database tables here
-
+        public DbSet<Workstation> Workstations { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {

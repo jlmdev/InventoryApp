@@ -13,7 +13,7 @@ namespace InventoryApp.Models
         public string Processor { get; set; }
         public string OS { get; set; }
         public bool Active { get; set; }
-        public string LastUpdate { get; set; }
+        public DateTime LastUpdate { get; set; }
         public string Type { get; set; }
     }
 }
