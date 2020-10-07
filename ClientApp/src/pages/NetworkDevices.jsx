@@ -19,6 +19,9 @@ export function NetworkDevices() {
         <button type="button" className="btn btn-primary btn-lg btn-block">
           Search
         </button>
+        <button type="button" className="btn btn-primary btn-lg btn-block">
+          Create New Network Device
+        </button>
         <button type="button" className="btn btn-secondary btn-lg btn-block">
           Network Device
         </button>

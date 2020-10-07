@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
 export function Workstations() {
   return (
@@ -16,15 +17,21 @@ export function Workstations() {
         </nav>
       </div>
       <div className="button-group">
-        <button type="button" className="btn btn-primary btn-lg btn-block">
-          Search
-        </button>
-        <button type="button" className="btn btn-primary btn-lg btn-block">
-          Create New Workstation
-        </button>
-        <button type="button" className="btn btn-secondary btn-lg btn-block">
-          Workstation
-        </button>
+        <Link to="/workstations/single-workstation">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            Search
+          </button>
+        </Link>
+        <Link to="/workstations/single-workstation">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            Create New Workstation
+          </button>
+        </Link>
+        <Link to="/workstations/single-workstation">
+          <button type="button" className="btn btn-secondary btn-lg btn-block">
+            Workstation
+          </button>
+        </Link>
       </div>
     </>
   )
