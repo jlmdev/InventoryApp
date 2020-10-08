@@ -76,7 +76,7 @@ export function App() {
         <Route exact path="/">
           <Workstations />
         </Route>
-        <Route exact path="/workstations/single-workstation">
+        <Route exact path="/workstations/:index">
           <SingleWorkstation />
         </Route>
         <Route exact path="/servers">

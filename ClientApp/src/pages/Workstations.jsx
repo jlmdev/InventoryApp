@@ -131,14 +131,14 @@ export function Workstations() {
             aria-describedby="basic-addon1"
           />
         </div>
-        <Link to="/workstations/single-workstation">
+        <Link to="workstations">
           <button type="button" className="btn btn-primary btn-lg btn-block">
             Create New Workstation
           </button>
         </Link>
 
-        {workstations.map((workstation) => (
-          <Link to="/workstations/single-workstation">
+        {workstations.map((workstation, index) => (
+          <Link to={`/workstations/${index}`}>
             <button
               type="button"
               className="btn btn-secondary btn-lg btn-block"
