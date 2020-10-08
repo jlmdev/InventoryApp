@@ -4,10 +4,13 @@ import { Link } from 'react-router-dom'
 export function Workstations() {
   const [workstations, setWorkstations] = useState([])
 
-  useEffect(async function () {
-    const response = await fetch('/api/workstations')
-    const json = await response.json()
-    setWorkstations(json)
+  useEffect(function () {
+    async function loadWorkstations() {
+      const response = await fetch('/api/workstations')
+      const json = await response.json()
+      setWorkstations(json)
+    }
+    loadWorkstations()
   }, [])
 
   return (
