@@ -55,7 +55,7 @@ export function Workstations() {
             }}
           />
         </div>
-        <Link to="workstations">
+        <Link to="/create-workstation">
           <button type="button" className="btn btn-primary btn-lg btn-block">
             Create New Workstation
           </button>

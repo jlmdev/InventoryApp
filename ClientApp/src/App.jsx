@@ -4,6 +4,7 @@ import './custom.scss'
 import { Home } from './pages/Home'
 import { SingleWorkstation } from './pages/SingleWorkstation'
 import { Workstations } from './pages/Workstations'
+import { CreateWorkstation } from './pages/CreateWorkstation'
 import { Servers } from './pages/Servers'
 import { SingleServer } from './pages/SingleServer'
 import { NetworkDevices } from './pages/NetworkDevices'
@@ -78,6 +79,9 @@ export function App() {
         </Route>
         <Route exact path="/workstations/:id">
           <SingleWorkstation />
+        </Route>
+        <Route exact path="/create-workstation">
+          <CreateWorkstation />
         </Route>
         <Route exact path="/servers">
           <Servers />
