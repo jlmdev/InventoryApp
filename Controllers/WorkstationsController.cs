@@ -31,11 +31,18 @@ namespace InventoryApp.Controllers
         // Returns a list of all your Workstations
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Workstation>>> GetWorkstations()
+        public async Task<ActionResult<IEnumerable<Workstation>>> GetWorkstations(string filter)
         {
-            // Uses the database context in `_context` to request all of the Workstations, sort
-            // them by row id and return them as a JSON array.
-            return await _context.Workstations.OrderBy(row => row.Id).ToListAsync();
+            if (filter == null)
+            {
+                // Uses the database context in `_context` to request all of the Workstations, sort
+                // them by row id and return them as a JSON array.
+                return await _context.Workstations.OrderBy(row => row.Id).ToListAsync();
+            }
+            else
+            {
+                return await _context.Workstations.Where(workstation => workstation.Name.ToLower().Contains(filter.ToLower())).OrderBy(row => row.Id).ToListAsync();
+            }
         }
 
         // GET: api/Workstation/5

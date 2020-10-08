@@ -3,15 +3,23 @@ import { Link } from 'react-router-dom'
 
 export function Workstations() {
   const [workstations, setWorkstations] = useState([])
+  const [filterText, setFilterText] = useState('')
 
-  useEffect(function () {
-    async function loadWorkstations() {
-      const response = await fetch('/api/workstations')
-      const json = await response.json()
-      setWorkstations(json)
-    }
-    loadWorkstations()
-  }, [])
+  useEffect(
+    function () {
+      async function loadWorkstations() {
+        const url =
+          filterText.length === 0
+            ? `/api/Workstations`
+            : `/api/Workstations?filter=${filterText}`
+        const response = await fetch(url)
+        const json = await response.json()
+        setWorkstations(json)
+      }
+      loadWorkstations()
+    },
+    [filterText]
+  )
 
   return (
     <>
@@ -41,6 +49,10 @@ export function Workstations() {
             placeholder="Search Term"
             aria-label="Search Term"
             aria-describedby="basic-addon1"
+            value={filterText}
+            onChange={function (event) {
+              setFilterText(event.target.value)
+            }}
           />
         </div>
         <Link to="workstations">
@@ -50,7 +62,7 @@ export function Workstations() {
         </Link>
 
         {workstations.map((workstation) => (
-          <Link to={`/workstations/${workstation.id}`}>
+          <Link key={workstation.id} to={`/workstations/${workstation.id}`}>
             <button
               type="button"
               className="btn btn-secondary btn-lg btn-block"
