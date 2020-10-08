@@ -137,8 +137,8 @@ export function Workstations() {
           </button>
         </Link>
 
-        {workstations.map((workstation, index) => (
-          <Link to={`/workstations/${index}`}>
+        {workstations.map((workstation) => (
+          <Link to={`/workstations/${workstation.id}`}>
             <button
               type="button"
               className="btn btn-secondary btn-lg btn-block"
