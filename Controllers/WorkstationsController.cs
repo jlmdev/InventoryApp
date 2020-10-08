@@ -14,14 +14,14 @@ namespace InventoryApp.Controllers
     // in this case WorkstationController to determine the URL
     [Route("api/[controller]")]
     [ApiController]
-    public class WorkstationController : ControllerBase
+    public class WorkstationsController : ControllerBase
     {
         // This is the variable you use to have access to your database
         private readonly DatabaseContext _context;
 
         // Constructor that recives a reference to your database context
         // and stores it in _context for you to use in your API methods
-        public WorkstationController(DatabaseContext context)
+        public WorkstationsController(DatabaseContext context)
         {
             _context = context;
         }
