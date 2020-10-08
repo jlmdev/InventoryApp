@@ -3,7 +3,7 @@ import React from 'react'
 export function SingleWorkstation() {
   return (
     <>
-      <div>
+      {/* <div>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
@@ -17,7 +17,7 @@ export function SingleWorkstation() {
             </li>
           </ol>
         </nav>
-      </div>
+      </div> */}
       <div className="button-group">
         <div className="input-group mb-3">
           <div className="input-group-prepend">
