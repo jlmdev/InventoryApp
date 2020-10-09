@@ -2,17 +2,21 @@ import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 export function CreateWorkstation() {
+  const today = new Date().toISOString().substr(0, 10)
+
   const [newWorkstation, setNewWorkstation] = useState({
     name: '',
     serial: '',
-    dateAcquired: '',
+    dateAcquired: today,
     description: '',
     processor: '',
     os: '',
     active: true,
-    lastUpdate: '',
+    lastUpdate: today,
     type: '',
   })
+
+  const [errorMessage, seterrorMessage] = useState()
 
   const history = useHistory()
 
@@ -34,7 +38,15 @@ export function CreateWorkstation() {
       body: JSON.stringify(newWorkstation),
     })
 
-    history.push('/')
+    // history.push('/')
+    const json = await response.json()
+
+    if (response.status === 400) {
+      const message = Object.values(json.errors).join(' ')
+      seterrorMessage(message)
+    } else {
+      history.push('/')
+    }
   }
 
   function handleCancelButton(event) {
@@ -44,6 +56,7 @@ export function CreateWorkstation() {
   return (
     <>
       <form onSubmit={handleFormSubmit}>
+        {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
           <div className="input-group mb-3">
             <div className="input-group-prepend">
