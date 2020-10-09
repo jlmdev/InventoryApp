@@ -37,6 +37,10 @@ export function CreateWorkstation() {
     history.push('/')
   }
 
+  function handleCancelButton(event) {
+    history.push('/')
+  }
+
   return (
     <>
       <form onSubmit={handleFormSubmit}>
@@ -231,8 +235,12 @@ export function CreateWorkstation() {
           <button type="submit" className="btn btn-success btn-lg btn-block">
             Save Changes
           </button>
-          <button type="button" className="btn btn-danger btn-lg btn-block">
-            Delete
+          <button
+            type="button"
+            className="btn btn-danger btn-lg btn-block"
+            onClick={handleCancelButton}
+          >
+            Cancel
           </button>
         </div>
       </form>
