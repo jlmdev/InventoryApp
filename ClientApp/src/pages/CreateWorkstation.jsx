@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
 export function CreateWorkstation() {
   const [newWorkstation, setNewWorkstation] = useState({
@@ -12,6 +13,8 @@ export function CreateWorkstation() {
     lastUpdate: '',
     type: '',
   })
+
+  const history = useHistory()
 
   function handleFormFieldChange(event) {
     const value = event.target.value
@@ -31,8 +34,7 @@ export function CreateWorkstation() {
       body: JSON.stringify(newWorkstation),
     })
 
-    console.log('Submitted the form')
-    console.log(newWorkstation)
+    history.push('/')
   }
 
   return (
