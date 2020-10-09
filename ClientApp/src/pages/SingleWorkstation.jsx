@@ -23,6 +23,7 @@ export function SingleWorkstation() {
         .then((response) => response.json())
         .then((apiData) => {
           apiData.dateAcquired = apiData.dateAcquired.substr(0, 10)
+          apiData.lastUpdate = apiData.lastUpdate.substr(0, 10)
           setWorkstation(apiData)
         })
     }
@@ -177,7 +178,7 @@ export function SingleWorkstation() {
           <input
             type="date"
             className="form-control"
-            placeholder={workstation.lastUpdate}
+            value={workstation.lastUpdate}
             aria-label="Last updated"
             aria-describedby="basic-addon1"
           />
