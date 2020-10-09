@@ -1,6 +1,40 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom'
 
 export function SingleWorkstation() {
+  const [workstation, setWorkstation] = useState({
+    name: '',
+    serial: '',
+    dateAcquired: '',
+    description: '',
+    processor: '',
+    os: '',
+    active: true,
+    lastUpdate: '',
+    type: '',
+  })
+
+  const params = useParams()
+  const id = params.id
+
+  useEffect(() => {
+    const fetchWorkstation = () => {
+      fetch(`/api/Workstations/${id}`)
+        .then((response) => response.json())
+        .then((apiData) => setWorkstation(apiData))
+    }
+    fetchWorkstation()
+  }, [id])
+
+  // useEffect(function () {
+  //   async function loadWorkstationDetails() {
+  //     const url = `/api/Workstations/${id}`
+  //     const response = await fetch(url)
+  //     const json = await response.json()
+  //     setWorkstation(json)
+  //   }
+  //   loadWorkstationDetails()
+  // }, [])
   return (
     <>
       {/* <div>
@@ -28,7 +62,7 @@ export function SingleWorkstation() {
           <input
             type="text"
             className="form-control"
-            placeholder="Name"
+            placeholder={workstation.name}
             aria-label="Name"
             aria-describedby="basic-addon1"
           />
@@ -42,7 +76,7 @@ export function SingleWorkstation() {
           <input
             type="text"
             className="form-control"
-            placeholder="Serial Number"
+            placeholder={workstation.serial}
             aria-label="Serial Number"
             aria-describedby="basic-addon1"
           />
@@ -54,9 +88,9 @@ export function SingleWorkstation() {
             </span>
           </div>
           <input
-            type="text"
+            type="date"
             className="form-control"
-            placeholder="Date Acquired"
+            placeholder={workstation.dateAcquired}
             aria-label="Date Acquired"
             aria-describedby="basic-addon1"
           />
@@ -70,12 +104,12 @@ export function SingleWorkstation() {
           <input
             type="text"
             className="form-control"
-            placeholder="Type"
+            placeholder={workstation.type}
             aria-label="Type"
             aria-describedby="basic-addon1"
           />
         </div>
-        <div className="input-group mb-3">
+        {/* <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Assigned To
@@ -88,8 +122,8 @@ export function SingleWorkstation() {
             aria-label="Assigned To"
             aria-describedby="basic-addon1"
           />
-        </div>
-        <div className="input-group mb-3">
+        </div> */}
+        {/* <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Location
@@ -102,7 +136,7 @@ export function SingleWorkstation() {
             aria-label="Location"
             aria-describedby="basic-addon1"
           />
-        </div>
+        </div> */}
         <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
@@ -112,7 +146,7 @@ export function SingleWorkstation() {
           <input
             type="text"
             className="form-control"
-            placeholder="OS"
+            placeholder={workstation.os}
             aria-label="OS"
             aria-describedby="basic-addon1"
           />
@@ -126,7 +160,7 @@ export function SingleWorkstation() {
           <input
             type="text"
             className="form-control"
-            placeholder="Processor"
+            placeholder={workstation.processor}
             aria-label="Processor"
             aria-describedby="basic-addon1"
           />
@@ -138,9 +172,9 @@ export function SingleWorkstation() {
             </span>
           </div>
           <input
-            type="text"
+            type="date"
             className="form-control"
-            placeholder="Last updated"
+            placeholder={workstation.lastUpdate}
             aria-label="Last updated"
             aria-describedby="basic-addon1"
           />
@@ -154,7 +188,7 @@ export function SingleWorkstation() {
           <input
             type="text"
             className="form-control"
-            placeholder="Active"
+            placeholder={workstation.active.toString()}
             aria-label="Active"
             aria-describedby="basic-addon1"
           />
@@ -168,7 +202,7 @@ export function SingleWorkstation() {
           <input
             type="text"
             className="form-control"
-            placeholder="Description"
+            placeholder={workstation.description}
             aria-label="Description"
             aria-describedby="basic-addon1"
           />
