@@ -21,7 +21,10 @@ export function SingleWorkstation() {
     const fetchWorkstation = () => {
       fetch(`/api/Workstations/${id}`)
         .then((response) => response.json())
-        .then((apiData) => setWorkstation(apiData))
+        .then((apiData) => {
+          apiData.dateAcquired = apiData.dateAcquired.substr(0, 10)
+          setWorkstation(apiData)
+        })
     }
     fetchWorkstation()
   }, [id])
@@ -90,7 +93,7 @@ export function SingleWorkstation() {
           <input
             type="date"
             className="form-control"
-            placeholder={workstation.dateAcquired}
+            value={workstation.dateAcquired}
             aria-label="Date Acquired"
             aria-describedby="basic-addon1"
           />
