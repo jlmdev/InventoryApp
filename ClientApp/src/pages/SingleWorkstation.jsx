@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
+import { useHistory, useParams } from 'react-router-dom'
 
 export function SingleWorkstation() {
   const [workstation, setWorkstation] = useState({
@@ -17,6 +17,9 @@ export function SingleWorkstation() {
   const params = useParams()
   const id = params.id
 
+  const history = useHistory()
+  const [errorMessage, setErrorMessage] = useState()
+
   useEffect(() => {
     const fetchWorkstation = () => {
       fetch(`/api/Workstations/${id}`)
@@ -30,6 +33,33 @@ export function SingleWorkstation() {
     fetchWorkstation()
   }, [id])
 
+  function handleFormFieldChange(event) {
+    const value = event.target.value
+    const fieldName = event.target.name
+
+    const updatedWorkstation = { ...workstation, [fieldName]: value }
+
+    setWorkstation(updatedWorkstation)
+  }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault()
+
+    const response = await fetch(`/api/Workstations/${id}`, {
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(workstation),
+    })
+
+    const json = await response.json()
+
+    if (response.status === 400) {
+      const message = Object.values(json.errors).join(' ')
+      setErrorMessage(message)
+    } else {
+      history.push('/')
+    }
+  }
   // useEffect(function () {
   //   async function loadWorkstationDetails() {
   //     const url = `/api/Workstations/${id}`
@@ -56,7 +86,8 @@ export function SingleWorkstation() {
           </ol>
         </nav>
       </div> */}
-      <form action="">
+      <form onSubmit={handleFormSubmit}>
+        {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
           <div className="input-group mb-3">
             <div className="input-group-prepend">
@@ -67,9 +98,11 @@ export function SingleWorkstation() {
             <input
               type="text"
               className="form-control"
-              placeholder={workstation.name}
+              value={workstation.name}
+              name="name"
               aria-label="Name"
               aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
             />
           </div>
           <div className="input-group mb-3">
@@ -212,7 +245,7 @@ export function SingleWorkstation() {
               aria-describedby="basic-addon1"
             />
           </div>
-          <button type="button" className="btn btn-success btn-lg btn-block">
+          <button type="submit" className="btn btn-success btn-lg btn-block">
             Save Changes
           </button>
           <button type="button" className="btn btn-danger btn-lg btn-block">
