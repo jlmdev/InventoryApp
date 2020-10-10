@@ -56,64 +56,65 @@ export function SingleWorkstation() {
           </ol>
         </nav>
       </div> */}
-      <div className="button-group">
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Name
-            </span>
+      <form action="">
+        <div className="button-group">
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Name
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder={workstation.name}
+              aria-label="Name"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder={workstation.name}
-            aria-label="Name"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Serial Number
-            </span>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Serial Number
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder={workstation.serial}
+              aria-label="Serial Number"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder={workstation.serial}
-            aria-label="Serial Number"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Date Acquired
-            </span>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Date Acquired
+              </span>
+            </div>
+            <input
+              type="date"
+              className="form-control"
+              value={workstation.dateAcquired}
+              aria-label="Date Acquired"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="date"
-            className="form-control"
-            value={workstation.dateAcquired}
-            aria-label="Date Acquired"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Type
-            </span>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Type
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder={workstation.type}
+              aria-label="Type"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder={workstation.type}
-            aria-label="Type"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        {/* <div className="input-group mb-3">
+          {/* <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Assigned To
@@ -127,7 +128,7 @@ export function SingleWorkstation() {
             aria-describedby="basic-addon1"
           />
         </div> */}
-        {/* <div className="input-group mb-3">
+          {/* <div className="input-group mb-3">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Location
@@ -141,83 +142,84 @@ export function SingleWorkstation() {
             aria-describedby="basic-addon1"
           />
         </div> */}
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              OS
-            </span>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                OS
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder={workstation.os}
+              aria-label="OS"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder={workstation.os}
-            aria-label="OS"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Processor
-            </span>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Processor
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder={workstation.processor}
+              aria-label="Processor"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder={workstation.processor}
-            aria-label="Processor"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Last updated
-            </span>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Last updated
+              </span>
+            </div>
+            <input
+              type="date"
+              className="form-control"
+              value={workstation.lastUpdate}
+              aria-label="Last updated"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="date"
-            className="form-control"
-            value={workstation.lastUpdate}
-            aria-label="Last updated"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Active
-            </span>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Active
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder={workstation.active.toString()}
+              aria-label="Active"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder={workstation.active.toString()}
-            aria-label="Active"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Description
-            </span>
+          <div className="input-group mb-3">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Description
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              placeholder={workstation.description}
+              aria-label="Description"
+              aria-describedby="basic-addon1"
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder={workstation.description}
-            aria-label="Description"
-            aria-describedby="basic-addon1"
-          />
+          <button type="button" className="btn btn-success btn-lg btn-block">
+            Save Changes
+          </button>
+          <button type="button" className="btn btn-danger btn-lg btn-block">
+            Delete
+          </button>
         </div>
-        <button type="button" className="btn btn-success btn-lg btn-block">
-          Save Changes
-        </button>
-        <button type="button" className="btn btn-danger btn-lg btn-block">
-          Delete
-        </button>
-      </div>
+      </form>
     </>
   )
 }
