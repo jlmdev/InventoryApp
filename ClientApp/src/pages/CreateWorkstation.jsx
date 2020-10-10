@@ -11,7 +11,6 @@ export function CreateWorkstation() {
     description: '',
     processor: '',
     os: '',
-    active: true,
     lastUpdate: today,
     type: '',
   })
@@ -126,40 +125,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          {/* <div className="input-group mb-3">
-            <div className="input-group-prepend">
-              <span className="input-group-text" id="basic-addon1">
-                Assigned To
-              </span>
-            </div>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Assigned To"
-              aria-label="Assigned To"
-              aria-describedby="basic-addon1"
-              value={newWorkstation.name}
-              name="name"
-              onChange={handleFormFieldChange}
-            />
-          </div> */}
-          {/* <div className="input-group mb-3">
-            <div className="input-group-prepend">
-              <span className="input-group-text" id="basic-addon1">
-                Location
-              </span>
-            </div>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Location"
-              aria-label="Location"
-              aria-describedby="basic-addon1"
-              value={newWorkstation.name}
-              name="name"
-              onChange={handleFormFieldChange}
-            />
-          </div> */}
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -211,23 +177,6 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          {/* <div className="input-group mb-3">
-            <div className="input-group-prepend">
-              <span className="input-group-text" id="basic-addon1">
-                Active
-              </span>
-            </div>
-            <input
-              type="text"
-              className="form-control"
-              placeholder="Active"
-              aria-label="Active"
-              aria-describedby="basic-addon1"
-              value={newWorkstation.active}
-              name="active"
-              onChange={handleFormFieldChange}
-            />
-          </div> */}
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
