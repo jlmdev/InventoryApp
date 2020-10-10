@@ -15,7 +15,6 @@ namespace InventoryApp.Models
         public string Description { get; set; }
         public string Processor { get; set; }
         public string OS { get; set; }
-        public bool Active { get; set; }
         [Required(ErrorMessage = "Date is required")]
         public DateTime LastUpdate { get; set; }
         public string Type { get; set; }
