@@ -114,9 +114,11 @@ export function SingleWorkstation() {
             <input
               type="text"
               className="form-control"
-              placeholder={workstation.serial}
+              value={workstation.serial}
+              name="serial"
               aria-label="Serial Number"
               aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
             />
           </div>
           <div className="input-group mb-3">
@@ -129,8 +131,10 @@ export function SingleWorkstation() {
               type="date"
               className="form-control"
               value={workstation.dateAcquired}
+              name="dateAcquired"
               aria-label="Date Acquired"
               aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
             />
           </div>
           <div className="input-group mb-3">
@@ -142,9 +146,11 @@ export function SingleWorkstation() {
             <input
               type="text"
               className="form-control"
-              placeholder={workstation.type}
+              value={workstation.type}
+              name="type"
               aria-label="Type"
               aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
             />
           </div>
           {/* <div className="input-group mb-3">
@@ -184,9 +190,11 @@ export function SingleWorkstation() {
             <input
               type="text"
               className="form-control"
-              placeholder={workstation.os}
+              value={workstation.os}
+              name="os"
               aria-label="OS"
               aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
             />
           </div>
           <div className="input-group mb-3">
@@ -198,9 +206,11 @@ export function SingleWorkstation() {
             <input
               type="text"
               className="form-control"
-              placeholder={workstation.processor}
+              value={workstation.processor}
+              name="processor"
               aria-label="Processor"
               aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
             />
           </div>
           <div className="input-group mb-3">
@@ -213,11 +223,13 @@ export function SingleWorkstation() {
               type="date"
               className="form-control"
               value={workstation.lastUpdate}
+              name="lastUpdate"
               aria-label="Last updated"
               aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          {/* <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Active
@@ -226,11 +238,13 @@ export function SingleWorkstation() {
             <input
               type="text"
               className="form-control"
-              placeholder={workstation.active.toString()}
+              value={workstation.active.toString()}
+              name="active"
               aria-label="Active"
               aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
             />
-          </div>
+          </div> */}
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -240,9 +254,11 @@ export function SingleWorkstation() {
             <input
               type="text"
               className="form-control"
-              placeholder={workstation.description}
+              value={workstation.description}
+              name="description"
               aria-label="Description"
               aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
             />
           </div>
           <button type="submit" className="btn btn-success btn-lg btn-block">
