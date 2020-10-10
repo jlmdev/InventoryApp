@@ -9,7 +9,6 @@ export function SingleWorkstation() {
     description: '',
     processor: '',
     os: '',
-    active: true,
     lastUpdate: '',
     type: '',
   })
@@ -60,32 +59,9 @@ export function SingleWorkstation() {
       history.push('/')
     }
   }
-  // useEffect(function () {
-  //   async function loadWorkstationDetails() {
-  //     const url = `/api/Workstations/${id}`
-  //     const response = await fetch(url)
-  //     const json = await response.json()
-  //     setWorkstation(json)
-  //   }
-  //   loadWorkstationDetails()
-  // }, [])
+
   return (
     <>
-      {/* <div>
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <a href="#">Home</a>
-            </li>
-            <li className="breadcrumb-item">
-              <a href="#">Workstations</a>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Single Workstation
-            </li>
-          </ol>
-        </nav>
-      </div> */}
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
@@ -153,34 +129,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          {/* <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Assigned To
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Assigned To"
-            aria-label="Assigned To"
-            aria-describedby="basic-addon1"
-          />
-        </div> */}
-          {/* <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Location
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Location"
-            aria-label="Location"
-            aria-describedby="basic-addon1"
-          />
-        </div> */}
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -229,22 +178,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          {/* <div className="input-group mb-3">
-            <div className="input-group-prepend">
-              <span className="input-group-text" id="basic-addon1">
-                Active
-              </span>
-            </div>
-            <input
-              type="text"
-              className="form-control"
-              value={workstation.active.toString()}
-              name="active"
-              aria-label="Active"
-              aria-describedby="basic-addon1"
-              onChange={handleFormFieldChange}
-            />
-          </div> */}
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
