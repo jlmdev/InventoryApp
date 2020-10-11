@@ -49,15 +49,6 @@ export function SingleWorkstation() {
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(workstation),
     })
-
-    // const json = await response.json()
-
-    // if (response.status === 400) {
-    //   const message = Object.values(json.errors).join(' ')
-    //   setErrorMessage(message)
-    // } else {
-    //   history.push('/')
-    // }
   }
 
   async function handleDeleteWorkstation(event) {
