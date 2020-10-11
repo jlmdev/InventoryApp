@@ -24,12 +24,12 @@ export function Home() {
             Servers
           </button>
         </Link>
-        {/* <Link to="/network-devices">
+        <Link to="/network-devices">
           <button type="button" className="btn btn-success btn-lg btn-block">
             Network
           </button>
         </Link>
-        <Link to="/device-users">
+        {/* <Link to="/device-users">
           <button type="button" className="btn btn-danger btn-lg btn-block">
             Device Users
           </button>
