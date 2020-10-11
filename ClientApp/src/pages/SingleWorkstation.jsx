@@ -69,7 +69,7 @@ export function SingleWorkstation() {
             <Link to="/">Home</Link>
           </li>
           <li className="breadcrumb-item">
-            <Link to="/">Workstations</Link>
+            <Link to="/workstations">Workstations</Link>
           </li>
           <li className="breadcrumb-item active" aria-current="page">
             {workstation.name}
