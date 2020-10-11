@@ -1,0 +1,4 @@
+TRUNCATE TABLE "Servers";
+INSERT INTO "Servers" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "LastUpdate", "IP", "Subnet", "Gateway") VALUES ('Server 1', '62626', '2018-11-24', 'Primary DC', 'Xeon', 'Windows Server 2012 R2', '2020-09-15', '10.72.0.30', '10.72.0.0', '10.72.0.10');
+INSERT INTO "Servers" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "LastUpdate", "IP", "Subnet", "Gateway") VALUES ('Server 1', '62626', '2018-11-24', 'Backup DC', 'Xeon', 'Windows Server 2012 R2', '2020-09-15', '10.72.0.31', '10.72.0.0', '10.72.0.10');
+INSERT INTO "Servers" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "LastUpdate", "IP", "Subnet", "Gateway") VALUES ('Server 1', '62626', '2019-11-30', 'File Server', 'Xeon', 'Windows Server 2012 R2', '2020-09-15', '10.72.0.32', '10.72.0.0', '10.72.0.10');

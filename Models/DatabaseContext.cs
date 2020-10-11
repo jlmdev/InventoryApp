@@ -15,6 +15,7 @@ namespace InventoryApp.Models
 
         // Add database tables here
         public DbSet<Workstation> Workstations { get; set; }
+        public DbSet<Server> Servers { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
