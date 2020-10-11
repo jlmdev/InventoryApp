@@ -66,7 +66,7 @@ export function SingleWorkstation() {
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Name
@@ -82,7 +82,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Serial Number
@@ -98,7 +98,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Date Acquired
@@ -114,7 +114,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Type
@@ -131,7 +131,7 @@ export function SingleWorkstation() {
             />
           </div>
 
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 OS
@@ -147,7 +147,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Processor
@@ -163,7 +163,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Last updated
@@ -180,7 +180,7 @@ export function SingleWorkstation() {
             />
           </div>
 
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Description
@@ -196,12 +196,15 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <button type="submit" className="btn btn-success btn-lg btn-block">
+          <button
+            type="submit"
+            className="btn btn-success btn-lg btn-block response-button"
+          >
             Save Changes
           </button>
           <button
             type="button"
-            className="btn btn-danger btn-lg btn-block delete"
+            className="btn btn-danger btn-lg btn-block delete response-button"
             onClick={handleDeleteWorkstation}
           >
             Delete
