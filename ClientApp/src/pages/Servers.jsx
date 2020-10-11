@@ -2,7 +2,6 @@ import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
 
 export function Servers() {
-  // State declarations
   const [servers, setServers] = useState([])
   const [filterText, setFilterText] = useState('')
 
@@ -55,7 +54,7 @@ export function Servers() {
             }}
           />
         </div>
-        <Link to="/servers/single-server">
+        <Link to="/create-server">
           <button type="button" className="btn btn-primary btn-lg btn-block">
             Create New Server
           </button>

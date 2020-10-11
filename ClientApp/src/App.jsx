@@ -7,6 +7,7 @@ import { Workstations } from './pages/Workstations'
 import { CreateWorkstation } from './pages/CreateWorkstation'
 import { Servers } from './pages/Servers'
 import { SingleServer } from './pages/SingleServer'
+import { CreateServer } from './pages/CreateServer'
 import { NetworkDevices } from './pages/NetworkDevices'
 import { SingleNetworkDevice } from './pages/SingleNetworkDevice'
 import { DeviceUsers } from './pages/DeviceUsers'
@@ -88,6 +89,9 @@ export function App() {
         </Route>
         <Route exact path="/servers/:id">
           <SingleServer />
+        </Route>
+        <Route exact path="/create-server">
+          <CreateServer />
         </Route>
         <Route exact path="/network-devices">
           <NetworkDevices />
