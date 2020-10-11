@@ -23,19 +23,18 @@ export function Workstations() {
 
   return (
     <>
-      {/* Breadcrumb code */}
-      {/* <div>
+      <div>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className="breadcrumb-item active" aria-current="page">
               Workstations
             </li>
           </ol>
         </nav>
-      </div> */}
+      </div>
       <div className="button-group">
         <div className="input-group mb-3">
           <div className="input-group-prepend">
