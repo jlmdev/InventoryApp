@@ -24,7 +24,7 @@ export function Home() {
             Servers
           </button>
         </Link>
-        <Link to="/network-devices">
+        {/* <Link to="/network-devices">
           <button type="button" className="btn btn-success btn-lg btn-block">
             Network
           </button>
@@ -43,7 +43,7 @@ export function Home() {
           <button type="button" className="btn btn-info btn-lg btn-block">
             Users
           </button>
-        </Link>
+        </Link> */}
       </div>
     </>
   )
