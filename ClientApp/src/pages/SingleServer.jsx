@@ -1,110 +1,183 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
 export function SingleServer() {
+  const [server, setServer] = useState({
+    name: '',
+    serial: '',
+    dateAcquired: '',
+    description: '',
+    processor: '',
+    os: '',
+    lastUpdate: '',
+    ip: '',
+    subnet: '',
+    gateway: '',
+  })
+
+  const params = useParams()
+  const id = params.id
+
+  const history = useHistory()
+  const [errorMessage, setErrorMessage] = useState()
+
+  useEffect(() => {
+    const fetchServer = () => {
+      fetch(`/api/Servers/${id}`)
+        .then((response) => response.json())
+        .then((apiData) => {
+          apiData.dateAcquired = apiData.dateAcquired.substr(0, 10)
+          apiData.lastUpdate = apiData.lastUpdate.substr(0, 10)
+          setServer(apiData)
+        })
+    }
+    fetchServer()
+  }, [id])
+
+  function handleFormFieldChange(event) {
+    const value = event.target.value
+    const fieldName = event.target.name
+
+    const updatedServer = { ...server, [fieldName]: value }
+
+    setServer(updatedServer)
+  }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault()
+
+    const response = await fetch(`/api/Servers/${id}`, {
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(server),
+    })
+  }
+
+  async function handleDeleteServer(event) {
+    event.preventDefault()
+
+    if (window.confirm('Are you sure you want to delete this?')) {
+      const response = await fetch(`/api/Servers/${id}`, {
+        method: 'DELETE',
+      })
+    }
+  }
+
   return (
     <>
-      <div>
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <a href="#">Home</a>
-            </li>
-            <li className="breadcrumb-item">
-              <a href="#">Servers</a>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Single Server
-            </li>
-          </ol>
-        </nav>
-      </div>
-      <div className="button-group">
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Name
-            </span>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="breadcrumb-item">
+            <Link to="/servers">Servers</Link>
+          </li>
+          <li className="breadcrumb-item active" aria-current="page">
+            {server.name}
+          </li>
+        </ol>
+      </nav>
+      <form onSubmit={handleFormSubmit}>
+        {errorMessage && <p>{errorMessage}</p>}
+        <div className="button-group">
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Name
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={server.name}
+              name="name"
+              aria-label="Name"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Name"
-            aria-label="Name"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Serial Number
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Serial Number
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={server.serial}
+              name="serial"
+              aria-label="Serial Number"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Serial Number"
-            aria-label="Serial Number"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Date Acquired
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Date Acquired
+              </span>
+            </div>
+            <input
+              type="date"
+              className="form-control"
+              value={server.dateAcquired}
+              name="dateAcquired"
+              aria-label="Date Acquired"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Date Acquired"
-            aria-label="Date Acquired"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Type
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Descriiption
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={server.description}
+              name="description"
+              aria-label="Type"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Type"
-            aria-label="Type"
-            aria-describedby="basic-addon1"
-          />
-        </div>
 
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Location
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Processor
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={server.processor}
+              name="processor"
+              aria-label="Location"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Location"
-            aria-label="Location"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              OS
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                OS
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={server.os}
+              aria-label="OS"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="OS"
-            aria-label="OS"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
+          {/* <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Processor
@@ -117,22 +190,24 @@ export function SingleServer() {
             aria-label="Processor"
             aria-describedby="basic-addon1"
           />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Last updated
-            </span>
+        </div> */}
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Last updated
+              </span>
+            </div>
+            <input
+              type="date"
+              className="form-control"
+              value={server.lastUpdate}
+              name="lastUpdate"
+              aria-label="Last updated"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Last updated"
-            aria-label="Last updated"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
+          {/* <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Active
@@ -145,70 +220,71 @@ export function SingleServer() {
             aria-label="Active"
             aria-describedby="basic-addon1"
           />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              IP
-            </span>
+        </div> */}
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                IP
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={server.ip}
+              name="ip"
+              aria-label="IP"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="IP"
-            aria-label="IP"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Subnet
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Subnet
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={server.subnet}
+              name="subnet"
+              aria-label="Subnet"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Subnet"
-            aria-label="Subnet"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Gateway
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Gateway
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={server.gateway}
+              name="gateway"
+              aria-label="Gateway"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Gateway"
-            aria-label="Gateway"
-            aria-describedby="basic-addon1"
-          />
+
+          <button
+            type="submit"
+            className="btn btn-success btn-lg btn-block response-button"
+          >
+            Save Changes
+          </button>
+          <button
+            type="button"
+            className="btn btn-danger btn-lg btn-block delete response-button"
+            onClick={handleDeleteServer}
+          >
+            Delete
+          </button>
         </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Description
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Description"
-            aria-label="Description"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <button type="button" className="btn btn-success btn-lg btn-block">
-          Save Changes
-        </button>
-        <button type="button" className="btn btn-danger btn-lg btn-block">
-          Delete
-        </button>
-      </div>
+      </form>
     </>
   )
 }

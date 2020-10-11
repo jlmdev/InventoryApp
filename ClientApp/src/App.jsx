@@ -86,7 +86,7 @@ export function App() {
         <Route exact path="/servers">
           <Servers />
         </Route>
-        <Route exact path="/servers/single-server">
+        <Route exact path="/servers/:id">
           <SingleServer />
         </Route>
         <Route exact path="/network-devices">
