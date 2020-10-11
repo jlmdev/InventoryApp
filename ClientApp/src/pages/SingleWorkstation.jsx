@@ -50,13 +50,23 @@ export function SingleWorkstation() {
       body: JSON.stringify(workstation),
     })
 
-    const json = await response.json()
+    // const json = await response.json()
 
-    if (response.status === 400) {
-      const message = Object.values(json.errors).join(' ')
-      setErrorMessage(message)
-    } else {
-      history.push('/')
+    // if (response.status === 400) {
+    //   const message = Object.values(json.errors).join(' ')
+    //   setErrorMessage(message)
+    // } else {
+    //   history.push('/')
+    // }
+  }
+
+  async function handleDeleteWorkstation(event) {
+    event.preventDefault()
+
+    if (window.confirm('Are you sure you want to delete this?')) {
+      const response = await fetch(`/api/Workstations/${id}`, {
+        method: 'DELETE',
+      })
     }
   }
 
@@ -198,7 +208,11 @@ export function SingleWorkstation() {
           <button type="submit" className="btn btn-success btn-lg btn-block">
             Save Changes
           </button>
-          <button type="button" className="btn btn-danger btn-lg btn-block">
+          <button
+            type="button"
+            className="btn btn-danger btn-lg btn-block delete"
+            onClick={handleDeleteWorkstation}
+          >
             Delete
           </button>
         </div>
