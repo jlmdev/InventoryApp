@@ -31,11 +31,18 @@ namespace InventoryApp.Controllers
         // Returns a list of all your Servers
         //
         [HttpGet]
-        public async Task<ActionResult<IEnumerable<Server>>> GetServers()
+        public async Task<ActionResult<IEnumerable<Server>>> GetServers(string filter)
         {
-            // Uses the database context in `_context` to request all of the Servers, sort
-            // them by row id and return them as a JSON array.
-            return await _context.Servers.OrderBy(row => row.Id).ToListAsync();
+            if (filter == null)
+            {
+                // Uses the database context in `_context` to request all of the Servers, sort
+                // them by row id and return them as a JSON array.
+                return await _context.Servers.OrderBy(row => row.Id).ToListAsync();
+            }
+            else
+            {
+                return await _context.Servers.Where(server => server.Name.ToLower().Contains(filter.ToLower())).OrderBy(row => row.Id).ToListAsync();
+            }
         }
 
         // GET: api/Servers/5

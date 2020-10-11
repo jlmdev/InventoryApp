@@ -37,19 +37,18 @@ export function CreateWorkstation() {
       body: JSON.stringify(newWorkstation),
     })
 
-    // history.push('/')
     const json = await response.json()
 
     if (response.status === 400) {
       const message = Object.values(json.errors).join(' ')
       seterrorMessage(message)
     } else {
-      history.push('/')
+      history.push('/workstations')
     }
   }
 
   function handleCancelButton(event) {
-    history.push('/')
+    history.push('/workstations')
   }
 
   return (
