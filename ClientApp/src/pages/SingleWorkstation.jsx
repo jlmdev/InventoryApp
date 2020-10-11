@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { useHistory, useParams } from 'react-router-dom'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
 export function SingleWorkstation() {
   const [workstation, setWorkstation] = useState({
@@ -63,6 +63,19 @@ export function SingleWorkstation() {
 
   return (
     <>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="breadcrumb-item">
+            <Link to="/">Workstations</Link>
+          </li>
+          <li className="breadcrumb-item active" aria-current="page">
+            {workstation.name}
+          </li>
+        </ol>
+      </nav>
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
