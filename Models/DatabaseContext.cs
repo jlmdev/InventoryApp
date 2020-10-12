@@ -17,6 +17,7 @@ namespace InventoryApp.Models
         public DbSet<Workstation> Workstations { get; set; }
         public DbSet<Server> Servers { get; set; }
 
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (LOG_SQL_STATEMENTS_IN_DEVELOPMENT && Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT") == "Development")

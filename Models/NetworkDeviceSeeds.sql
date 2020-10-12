@@ -1,0 +1,6 @@
+TRUNCATE TABLE "NetworkDevices";
+
+INSERT INTO "NetworkDevices" ("Name", "Serial", "Type", "Description", "DateAcquired", "LastUpdated", "IP", "Subnet", "Gateway") VALUES ('Primary Router', '161616', 'Router', 'SonicWall TZ500', '2017-02-27', '2020-05-15', '10.0.0.10', '10.0.0.0', '10.0.0.10');
+INSERT INTO "NetworkDevices" ("Name", "Serial", "Type", "Description", "DateAcquired", "LastUpdated", "IP", "Subnet", "Gateway") VALUES ('Switch 1', '161616', 'Switch', 'HP', '2017-05-13', '2020-05-15', '10.0.0.20', '10.0.0.0', '10.0.0.10');
+INSERT INTO "NetworkDevices" ("Name", "Serial", "Type", "Description", "DateAcquired", "LastUpdated", "IP", "Subnet", "Gateway") VALUES ('Switch 2', '257227', 'Switch', 'HP', '2017-05-13', '2020-05-15', '10.0.0.21', '10.0.0.0', '10.0.0.10');
+INSERT INTO "NetworkDevices" ("Name", "Serial", "Type", "Description", "DateAcquired", "LastUpdated", "IP", "Subnet", "Gateway") VALUES ('Switch 3', '3837447', 'Switch', 'HP', '2017-05-13', '2020-05-15', '10.0.0.22', '10.0.0.0', '10.0.0.10');
