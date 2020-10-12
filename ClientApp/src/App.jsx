@@ -10,6 +10,7 @@ import { SingleServer } from './pages/SingleServer'
 import { CreateServer } from './pages/CreateServer'
 import { NetworkDevices } from './pages/NetworkDevices'
 import { SingleNetworkDevice } from './pages/SingleNetworkDevice'
+import { CreateNetworkDevice } from './pages/CreateNetworkDevice'
 import { DeviceUsers } from './pages/DeviceUsers'
 import { SingleDeviceUser } from './pages/SingleDeviceUser'
 import { Locations } from './pages/Locations'
@@ -95,6 +96,9 @@ export function App() {
         </Route>
         <Route exact path="/network-devices">
           <NetworkDevices />
+        </Route>
+        <Route exact path="/create-network-device">
+          <CreateNetworkDevice />
         </Route>
         <Route exact path="/network-devices/single-network-device">
           <SingleNetworkDevice />
