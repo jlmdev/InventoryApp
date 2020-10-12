@@ -60,7 +60,7 @@ export function NetworkDevices() {
           </button>
         </Link>
         {networkDevices.map((networkDevice) => (
-          <Link key={networkDevice.id} to={`/servers/${networkDevice.id}`}>
+          <Link key={networkDevice.id} to={`/network-devices/${networkDevice.id}`}>
             <button
               type="button"
               className="btn btn-secondary btn-lg btn-block"

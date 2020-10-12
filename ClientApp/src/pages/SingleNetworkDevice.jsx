@@ -1,25 +1,86 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+import { Link, useHistory, useParams } from 'react-router-dom'
 
 export function SingleNetworkDevice() {
+  const [networkDevice, setNetworkDevice] = useState({
+    name: '',
+    serial: '',
+    type: '',
+    dateAcquired: '',
+    description: '',
+    lastUpdated: '',
+    ip: '',
+    subnet: '',
+    gateway: '',
+  })
+
+  const params = useParams()
+  const id = params.id
+
+  const history = useHistory()
+  const [errorMessage, setErrorMessage] = useState()
+
+  useEffect(() => {
+    const fetchNetworkDevice = () => {
+      fetch(`/api/NetworkDevices/${id}`)
+        .then((response) => response.json())
+        .then((apiData) => {
+          apiData.dateAcquired = apiData.dateAcquired.substr(0, 10)
+          apiData.lastUpdated = apiData.lastUpdated.substr(0, 10)
+          setNetworkDevice(apiData)
+        })
+    }
+    fetchNetworkDevice()
+  }, [id])
+
+  function handleFormFieldChange(event) {
+    const value = event.target.value
+    const fieldName = event.target.name
+
+    const updatedNetworkDevice = { ...networkDevice, [fieldName]: value }
+
+    setNetworkDevice(updatedNetworkDevice)
+  }
+
+  async function handleFormSubmit(event) {
+    event.preventDefault()
+
+    const response = await fetch(`/api/NetworkDevices/${id}`, {
+      method: 'PUT',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(networkDevice),
+    })
+  }
+
+  async function handleDeleteNetworkDevice(event) {
+    event.preventDefault()
+
+    if (window.confirm('Are you sure you want to delete this?')) {
+      const response = await fetch(`/api/NetworkDevices/${id}`, {
+        method: 'DELETE',
+      })
+    }
+  }
+
   return (
     <>
-      <div>
-        <nav aria-label="breadcrumb">
-          <ol className="breadcrumb">
-            <li className="breadcrumb-item">
-              <a href="#">Home</a>
-            </li>
-            <li className="breadcrumb-item">
-              <a href="#">Workstations</a>
-            </li>
-            <li className="breadcrumb-item active" aria-current="page">
-              Single Workstation
-            </li>
-          </ol>
-        </nav>
-      </div>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
+            <Link to="/">Home</Link>
+          </li>
+          <li className="breadcrumb-item">
+            <Link to="/network-devices">Network Devices</Link>
+          </li>
+          <li className="breadcrumb-item active" aria-current="page">
+            {networkDevice.name}
+          </li>
+        </ol>
+      </nav>
+      <form onSubmit={handleFormSubmit}>
+        {errorMessage && <p>{errorMessage}</p>}
       <div className="button-group">
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Name
@@ -28,12 +89,14 @@ export function SingleNetworkDevice() {
           <input
             type="text"
             className="form-control"
-            placeholder="Name"
+            value={networkDevice.name}
+            name="name"
             aria-label="Name"
             aria-describedby="basic-addon1"
+            onChange={handleFormFieldChange}
           />
         </div>
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Serial Number
@@ -42,26 +105,14 @@ export function SingleNetworkDevice() {
           <input
             type="text"
             className="form-control"
-            placeholder="Serial Number"
+            value={networkDevice.serial}
+            name="serial"
             aria-label="Serial Number"
             aria-describedby="basic-addon1"
+            onChange={handleFormFieldChange}
           />
         </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Date Acquired
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Date Acquired"
-            aria-label="Date Acquired"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Type
@@ -70,56 +121,46 @@ export function SingleNetworkDevice() {
           <input
             type="text"
             className="form-control"
-            placeholder="Type"
+            value={networkDevice.type}
+            name="type"
             aria-label="Type"
             aria-describedby="basic-addon1"
+            onChange={handleFormFieldChange}
           />
         </div>
-
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
-              Location
+              Date Acquired
             </span>
           </div>
           <input
-            type="text"
+            type="date"
             className="form-control"
-            placeholder="Location"
-            aria-label="Location"
+            value={networkDevice.dateAcquired}
+            name="dateAcquired"
+            aria-label="Date Acquired"
             aria-describedby="basic-addon1"
+            onChange={handleFormFieldChange}
           />
         </div>
-
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Last updated
             </span>
           </div>
           <input
-            type="text"
+            type="date"
             className="form-control"
-            placeholder="Last updated"
+            value={networkDevice.lastUpdated}
+            name="lastUpdated"
             aria-label="Last updated"
             aria-describedby="basic-addon1"
+            onChange={handleFormFieldChange}
           />
         </div>
-        <div className="input-group mb-3">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Active
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Active"
-            aria-label="Active"
-            aria-describedby="basic-addon1"
-          />
-        </div>
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               IP
@@ -128,12 +169,14 @@ export function SingleNetworkDevice() {
           <input
             type="text"
             className="form-control"
-            placeholder="IP"
+            value={networkDevice.ip}
+            name="ip"
             aria-label="IP"
             aria-describedby="basic-addon1"
+            onChange={handleFormFieldChange}
           />
         </div>
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Subnet
@@ -142,12 +185,14 @@ export function SingleNetworkDevice() {
           <input
             type="text"
             className="form-control"
-            placeholder="Subnet"
+            value={networkDevice.subnet}
+            name="subnet"
             aria-label="Subnet"
             aria-describedby="basic-addon1"
+            onChange={handleFormFieldChange}
           />
         </div>
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Gateway
@@ -156,12 +201,14 @@ export function SingleNetworkDevice() {
           <input
             type="text"
             className="form-control"
-            placeholder="Gateway"
+            value={networkDevice.gateway}
+            name="gateway"
             aria-label="Gateway"
             aria-describedby="basic-addon1"
+            onChange={handleFormFieldChange}
           />
         </div>
-        <div className="input-group mb-3">
+        <div className="input-group mb-3 input-div">
           <div className="input-group-prepend">
             <span className="input-group-text" id="basic-addon1">
               Description
@@ -175,13 +222,14 @@ export function SingleNetworkDevice() {
             aria-describedby="basic-addon1"
           />
         </div>
-        <button type="button" className="btn btn-success btn-lg btn-block">
+        <button type="button" className="btn btn-success btn-lg btn-block response-button">
           Save Changes
         </button>
-        <button type="button" className="btn btn-danger btn-lg btn-block">
+        <button type="button" className="btn btn-danger btn-lg btn-block delete response-button" onClick={handleDeleteNetworkDevice}>
           Delete
         </button>
       </div>
+      </form>
     </>
   )
 }

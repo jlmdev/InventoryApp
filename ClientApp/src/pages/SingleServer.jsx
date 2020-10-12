@@ -132,7 +132,7 @@ export function SingleServer() {
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
-                Descriiption
+                Description
               </span>
             </div>
             <input

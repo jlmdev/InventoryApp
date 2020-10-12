@@ -97,6 +97,9 @@ export function App() {
         <Route exact path="/network-devices">
           <NetworkDevices />
         </Route>
+        <Route exact path="/network-devices/:id">
+          <SingleNetworkDevice />
+        </Route>
         <Route exact path="/create-network-device">
           <CreateNetworkDevice />
         </Route>
