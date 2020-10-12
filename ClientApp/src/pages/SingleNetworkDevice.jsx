@@ -79,156 +79,159 @@ export function SingleNetworkDevice() {
       </nav>
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
-      <div className="button-group">
-        <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Name
-            </span>
+        <div className="button-group">
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Name
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={networkDevice.name}
+              name="name"
+              aria-label="Name"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            value={networkDevice.name}
-            name="name"
-            aria-label="Name"
-            aria-describedby="basic-addon1"
-            onChange={handleFormFieldChange}
-          />
-        </div>
-        <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Serial Number
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Serial Number
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={networkDevice.serial}
+              name="serial"
+              aria-label="Serial Number"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            value={networkDevice.serial}
-            name="serial"
-            aria-label="Serial Number"
-            aria-describedby="basic-addon1"
-            onChange={handleFormFieldChange}
-          />
-        </div>
-        <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Type
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Type
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={networkDevice.type}
+              name="type"
+              aria-label="Type"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            value={networkDevice.type}
-            name="type"
-            aria-label="Type"
-            aria-describedby="basic-addon1"
-            onChange={handleFormFieldChange}
-          />
-        </div>
-        <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Date Acquired
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Description
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={networkDevice.description}
+              name="description"
+              aria-label="Description"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="date"
-            className="form-control"
-            value={networkDevice.dateAcquired}
-            name="dateAcquired"
-            aria-label="Date Acquired"
-            aria-describedby="basic-addon1"
-            onChange={handleFormFieldChange}
-          />
-        </div>
-        <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Last updated
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Date Acquired
+              </span>
+            </div>
+            <input
+              type="date"
+              className="form-control"
+              value={networkDevice.dateAcquired}
+              name="dateAcquired"
+              aria-label="Date Acquired"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="date"
-            className="form-control"
-            value={networkDevice.lastUpdated}
-            name="lastUpdated"
-            aria-label="Last updated"
-            aria-describedby="basic-addon1"
-            onChange={handleFormFieldChange}
-          />
-        </div>
-        <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              IP
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Last updated
+              </span>
+            </div>
+            <input
+              type="date"
+              className="form-control"
+              value={networkDevice.lastUpdated}
+              name="lastUpdated"
+              aria-label="Last updated"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            value={networkDevice.ip}
-            name="ip"
-            aria-label="IP"
-            aria-describedby="basic-addon1"
-            onChange={handleFormFieldChange}
-          />
-        </div>
-        <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Subnet
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                IP
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={networkDevice.ip}
+              name="ip"
+              aria-label="IP"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            value={networkDevice.subnet}
-            name="subnet"
-            aria-label="Subnet"
-            aria-describedby="basic-addon1"
-            onChange={handleFormFieldChange}
-          />
-        </div>
-        <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Gateway
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Subnet
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={networkDevice.subnet}
+              name="subnet"
+              aria-label="Subnet"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            value={networkDevice.gateway}
-            name="gateway"
-            aria-label="Gateway"
-            aria-describedby="basic-addon1"
-            onChange={handleFormFieldChange}
-          />
-        </div>
-        <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Description
-            </span>
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <span className="input-group-text" id="basic-addon1">
+                Gateway
+              </span>
+            </div>
+            <input
+              type="text"
+              className="form-control"
+              value={networkDevice.gateway}
+              name="gateway"
+              aria-label="Gateway"
+              aria-describedby="basic-addon1"
+              onChange={handleFormFieldChange}
+            />
           </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Description"
-            aria-label="Description"
-            aria-describedby="basic-addon1"
-          />
+          
+          <button type="submit" className="btn btn-success btn-lg btn-block response-button">
+            Save Changes
+          </button>
+          <button type="button" className="btn btn-danger btn-lg btn-block delete response-button" onClick={handleDeleteNetworkDevice}>
+            Delete
+          </button>
         </div>
-        <button type="button" className="btn btn-success btn-lg btn-block response-button">
-          Save Changes
-        </button>
-        <button type="button" className="btn btn-danger btn-lg btn-block delete response-button" onClick={handleDeleteNetworkDevice}>
-          Delete
-        </button>
-      </div>
       </form>
     </>
   )
