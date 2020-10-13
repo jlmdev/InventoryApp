@@ -1,4 +1,4 @@
-TRUNCATE TABLE "Workstations", "Servers", "NetworkDevices" RESTART IDENTITY;
+TRUNCATE TABLE "Workstations", "Servers", "NetworkDevices", "Locations" RESTART IDENTITY;
 
 INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "LastUpdate", "Type") VALUES ('Desktop 1', '12345', '2015-06-30', 'Conference Room Desktop', 'i7', 'Windows 10', '2020-09-15', 'Desktop');
 INSERT INTO "Workstations" ("Name", "Serial", "DateAcquired", "Description", "Processor", "OS", "LastUpdate", "Type") VALUES ('Desktop 2', '23456ERTY', '2018-07-15', 'James Desktop', 'i5', 'Windows 10', '2020-09-15', 'Desktop');
@@ -17,3 +17,7 @@ INSERT INTO "NetworkDevices" ("Name", "Serial", "Type", "Description", "DateAcqu
 INSERT INTO "NetworkDevices" ("Name", "Serial", "Type", "Description", "DateAcquired", "LastUpdated", "IP", "Subnet", "Gateway") VALUES ('Switch 1', '161616', 'Switch', 'HP', '2017-05-13', '2020-05-15', '10.0.0.20', '10.0.0.0', '10.0.0.10');
 INSERT INTO "NetworkDevices" ("Name", "Serial", "Type", "Description", "DateAcquired", "LastUpdated", "IP", "Subnet", "Gateway") VALUES ('Switch 2', '257227', 'Switch', 'HP', '2017-05-13', '2020-05-15', '10.0.0.21', '10.0.0.0', '10.0.0.10');
 INSERT INTO "NetworkDevices" ("Name", "Serial", "Type", "Description", "DateAcquired", "LastUpdated", "IP", "Subnet", "Gateway") VALUES ('Switch 3', '3837447', 'Switch', 'HP', '2017-05-13', '2020-05-15', '10.0.0.22', '10.0.0.0', '10.0.0.10');
+
+INSERT INTO "Locations" ("Name", "Street1", "Street2", "City", "State", "ZIP") VALUES ('Main Office', '704 Westshore Ave.', '', 'Tampa', 'FL', '33609');
+INSERT INTO "Locations" ("Name", "Street1", "Street2", "City", "State", "ZIP") VALUES ('St Petersburg Office', '2020 Central Ave.', '', 'St. Petersburg', 'FL', '33712');
+INSERT INTO "Locations" ("Name", "Street1", "Street2", "City", "State", "ZIP") VALUES ('Branch Office', '6918 Gunn Hwy', '', 'Tampa', 'FL', '33625');
