@@ -1,6 +1,10 @@
-import React from 'react'
+import React, { useState } from 'react'
 
 export function Locations() {
+
+  const [locations, setLocations] = useState([])
+  const [filterText, setFilterText] = useState('')
+
   return (
     <>
       <div>
