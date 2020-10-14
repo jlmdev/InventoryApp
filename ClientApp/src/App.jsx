@@ -15,6 +15,7 @@ import { DeviceUsers } from './pages/DeviceUsers'
 import { SingleDeviceUser } from './pages/SingleDeviceUser'
 import { Locations } from './pages/Locations'
 import { SingleLocation } from './pages/SingleLocation'
+// import { CreateLocation } from `./pages/CreateLocation`
 import { Users } from './pages/Users'
 import { SingleUser } from './pages/SingleUser'
 
