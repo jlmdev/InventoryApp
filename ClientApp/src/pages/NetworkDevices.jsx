@@ -24,6 +24,7 @@ export function NetworkDevices() {
   return (
     <>
       <div>
+        {/* Breadcrumb Navigation bar */}
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">

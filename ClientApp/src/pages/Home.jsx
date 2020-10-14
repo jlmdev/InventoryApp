@@ -33,13 +33,13 @@ export function Home() {
           <button type="button" className="btn btn-danger btn-lg btn-block">
             Device Users
           </button>
-        </Link>
+        </Link> */}
         <Link to="/locations">
           <button type="button" className="btn btn-warning btn-lg btn-block">
             Locations
           </button>
         </Link>
-        <Link to="/users">
+        {/* <Link to="/users">
           <button type="button" className="btn btn-info btn-lg btn-block">
             Users
           </button>
