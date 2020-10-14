@@ -115,7 +115,10 @@ export function App() {
         <Route exact path="/locations">
           <Locations />
         </Route>
-        <Route exact path="/locations/single-location">
+        <Route exact path="/locations/:id">
+          <SingleLocation />
+        </Route>
+        <Route exact path="/create-location">
           <SingleLocation />
         </Route>
         <Route exact path="/users">
