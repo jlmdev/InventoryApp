@@ -225,10 +225,15 @@ export function SingleNetworkDevice() {
             />
           </div>
           
-          <button type="submit" className="btn btn-success btn-lg btn-block response-button">
+          <button 
+            type="submit" 
+            className="btn btn-success btn-lg btn-block response-button">
             Save Changes
           </button>
-          <button type="button" className="btn btn-danger btn-lg btn-block delete response-button" onClick={handleDeleteNetworkDevice}>
+          <button 
+            type="button" 
+            className="btn btn-danger btn-lg btn-block delete response-button" 
+            onClick={handleDeleteNetworkDevice}>
             Delete
           </button>
         </div>

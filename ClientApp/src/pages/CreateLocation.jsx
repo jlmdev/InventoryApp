@@ -1,10 +1,9 @@
-import React, { useEffect, useState } from 'react'
-import { Link, useHistory, useParams } from 'react-router-dom'
+import React, { useState } from 'react'
+import { useHistory } from 'react-router-dom'
 
-export function SingleLocation() {
+export function CreateLocation() {
 
-  // Initialize and store location data
-  const [location, setLocation] = useState({
+  const [newLocation, setNewLocation] = useState({
     name: '',
     street1: '',
     street2: '',
@@ -13,92 +12,48 @@ export function SingleLocation() {
     zip: '',
   })
 
-  // Extract id parameter from url
-  const params = useParams()
-  const id = params.id
+  const [errorMessage, seterrorMessage] = useState()
 
-  // Hook for relocation
   const history = useHistory()
 
-  // Pass error messages from Controller if present
-  const [errorMessage, setErrorMessage] = useState()
-
-  // useEffect(() => {
-  //   const fetchLocation = () => {
-  //     fetch(`/api/Locations/${id}`)
-  //       .then((response) => response.json())
-  //       .then((apiData) => {
-  //         apiData.dateAcquired = apiData.dateAcquired.substr(0, 10)
-  //         apiData.lastUpdated = apiData.lastUpdated.substr(0, 10)
-  //         setNetworkDevice(apiData)
-  //       })
-  //   }
-  //   fetchNetworkDevice()
-  // }, [id])
-
-  // Get Location by id
-  useEffect(() => {
-    async function fetchLocation() {
-      const response = await fetch(`/api/Locations/${id}`)
-      const apiData = await response.json()
-
-      setLocation(apiData)
-    }
-
-    fetchLocation()
-  }, [id])
-
-  // handle field edits
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
 
-    const updatedLocation = { ...location, [fieldName]: value }
+    const updatedLocation = { ...newLocation, [fieldName]: value }
 
-    setLocation(updatedLocation)
+    setNewLocation(updatedLocation)
   }
 
-  // handle form submission to save changes
   async function handleFormSubmit(event) {
     event.preventDefault()
 
-    const response = await fetch(`/api/Locations/${id}`, {
-      method: 'PUT',
+    const response = await fetch('/api/Locations', {
+      method: 'POST',
       headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(location),
+      body: JSON.stringify(newLocation),
     })
-  }
 
-  // handle deletion
-  async function handleDeleteLocation(event) {
-    event.preventDefault()
+    const json = await response.json()
 
-    if (window.confirm('Are you sure you want to delete this?')) {
-      const response = await fetch(`/api/Locations/${id}`, {
-        method: 'DELETE',
-      })
+    if (response.status === 400) {
+      const message = Object.values(json.errors).join(' ')
+      seterrorMessage(message)
+    } else {
+      history.push('/locations')
     }
   }
 
+  function handleCancelButton(event) {
+    history.push('/locations')
+  }
+
   return (
-    <>    
-      <nav aria-label="breadcrumb">
-        <ol className="breadcrumb">
-          <li className="breadcrumb-item">
-            <Link to="/">Home</Link>
-          </li>
-          <li className="breadcrumb-item">
-            <Link to="/locations">Locations</Link>
-          </li>
-          <li className="breadcrumb-item active" aria-current="page">
-            Single Location
-          </li>
-        </ol>
-      </nav>
+    <>
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
-          <div className="input-group mb-3 input-div">
+          <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Name
@@ -107,14 +62,15 @@ export function SingleLocation() {
             <input
               type="text"
               className="form-control"
-              value={location.name}
-              name="name"
+              placeholder="Name"
               aria-label="Name"
               aria-describedby="basic-addon1"
+              value={newLocation.name}
+              name="name"
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3 input-div">
+          <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Street 1
@@ -123,14 +79,15 @@ export function SingleLocation() {
             <input
               type="text"
               className="form-control"
-              value={location.street1}
-              name="street1"
+              placeholder="Street 1"
               aria-label="Street 1"
               aria-describedby="basic-addon1"
+              value={newLocation.street1}
+              name="street1"
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3 input-div">
+          <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Street 2
@@ -139,14 +96,15 @@ export function SingleLocation() {
             <input
               type="text"
               className="form-control"
-              value={location.street2}
-              name="street2"
+              placeholder="Street 2"
               aria-label="Street 2"
               aria-describedby="basic-addon1"
+              value={newLocation.street2}
+              name="street2"
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3 input-div">
+          <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 City
@@ -155,14 +113,15 @@ export function SingleLocation() {
             <input
               type="text"
               className="form-control"
-              value={location.city}
-              name="city"
+              placeholder="City"
               aria-label="City"
               aria-describedby="basic-addon1"
+              value={newLocation.city}
+              name="city"
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3 input-div">
+          <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 State
@@ -171,14 +130,15 @@ export function SingleLocation() {
             <input
               type="text"
               className="form-control"
-              value={location.state}
-              name="state"
+              placeholder="State"
               aria-label="State"
               aria-describedby="basic-addon1"
+              value={newLocation.state}
+              name="state"
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3 input-div">
+          <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 ZIP
@@ -187,24 +147,24 @@ export function SingleLocation() {
             <input
               type="text"
               className="form-control"
-              value={location.zip}
-              name="zip"
+              placeholder="ZIP"
               aria-label="ZIP"
               aria-describedby="basic-addon1"
+              value={newLocation.zip}
+              name="zip"
               onChange={handleFormFieldChange}
             />
           </div>
-
-          <button 
-            type="submit" 
-            className="btn btn-success btn-lg btn-block response-button">
+  
+          <button type="submit" className="btn btn-success btn-lg btn-block">
             Save Changes
           </button>
-          <button 
-            type="button" 
-            className="btn btn-danger btn-lg btn-block delete response-button" 
-            onClick={handleDeleteLocation}>
-            Delete
+          <button
+            type="button"
+            className="btn btn-danger btn-lg btn-block"
+            onClick={handleCancelButton}
+          >
+            Cancel
           </button>
         </div>
       </form>
