@@ -11,7 +11,10 @@ export function SingleWorkstation() {
     os: '',
     lastUpdate: '',
     type: '',
+    locationId: ''
   })
+
+  const [locations, setLocations] = useState([])
 
   const params = useParams()
   const id = params.id
@@ -32,12 +35,32 @@ export function SingleWorkstation() {
     fetchWorkstation()
   }, [id])
 
+  useEffect(
+    function () {
+      async function loadLocations() {
+        const url = `/api/Locations`
+        const response = await fetch(url)
+        const json = await response.json()
+        setLocations(json)
+      }
+      loadLocations()
+    },
+    []
+  )
+
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
 
     const updatedWorkstation = { ...workstation, [fieldName]: value }
 
+    setWorkstation(updatedWorkstation)
+  }
+
+  function handleNumericFormFieldChange(event) {
+    const value = Number(event.target.value)
+    const fieldName = event.target.name
+    const updatedWorkstation = { ...workstation, [fieldName]: value }
     setWorkstation(updatedWorkstation)
   }
 
@@ -61,6 +84,7 @@ export function SingleWorkstation() {
     }
   }
 
+  console.log(workstation.locationId)
   return (
     <>
       <nav aria-label="breadcrumb">
@@ -209,6 +233,24 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+          {/* Testing Location button */}
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
+            </div>
+            <select className="custom-select" id="inputGroupSelect01" name="locationId" value={workstation.locationId} onChange={handleNumericFormFieldChange}>
+            {
+                locations.map((location) => (
+                  <option value={location.id} key={location.id}>
+                    {location.name}
+                  </option>
+                ))
+              }
+              
+            </select>
+          </div>
+          
+              
           <button
             type="submit"
             className="btn btn-success btn-lg btn-block response-button"

@@ -18,5 +18,8 @@ namespace InventoryApp.Models
         [Required(ErrorMessage = "Date is required")]
         public DateTime LastUpdate { get; set; }
         public string Type { get; set; }
+        // Location
+        public int LocationId { get; set; }
+        public Location Location { get; set; }
     }
 }
