@@ -18,6 +18,7 @@ namespace InventoryApp.Models
         public DbSet<Server> Servers { get; set; }
         public DbSet<NetworkDevice> NetworkDevices { get; set; }
         public DbSet<Location> Locations { get; set; }
+        public DbSet<User> Users { get; set; }
 
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
