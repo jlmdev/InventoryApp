@@ -19,6 +19,7 @@ import { CreateLocation } from './pages/CreateLocation'
 import { Users } from './pages/Users'
 import { SingleUser } from './pages/SingleUser'
 import { CreateUser } from './pages/CreateUser'
+import { SignIn } from './pages/SignIn'
 
 export function App() {
   return (
@@ -131,6 +132,9 @@ export function App() {
         </Route>
         <Route exact path="/create-user">
           <CreateUser />
+        </Route>
+        <Route exact path="/sign-in">
+          <SignIn />
         </Route>
       </Switch>
     </>
