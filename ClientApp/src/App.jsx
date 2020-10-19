@@ -18,6 +18,7 @@ import { SingleLocation } from './pages/SingleLocation'
 import { CreateLocation } from './pages/CreateLocation'
 import { Users } from './pages/Users'
 import { SingleUser } from './pages/SingleUser'
+import { CreateUser } from './pages/CreateUser'
 
 export function App() {
   return (
@@ -127,6 +128,9 @@ export function App() {
         </Route>
         <Route exact path="/users/single-user">
           <SingleUser />
+        </Route>
+        <Route exact path="/create-user">
+          <CreateUser />
         </Route>
       </Switch>
     </>
