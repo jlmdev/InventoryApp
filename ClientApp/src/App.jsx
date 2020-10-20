@@ -130,7 +130,7 @@ export function App() {
         <Route exact path="/users">
           <Users />
         </Route>
-        <Route exact path="/users/single-user">
+        <Route exact path="/users/:id">
           <SingleUser />
         </Route>
         <Route exact path="/create-user">

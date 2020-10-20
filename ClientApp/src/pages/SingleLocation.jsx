@@ -24,18 +24,6 @@ export function SingleLocation() {
   // Pass error messages from Controller if present
   const [errorMessage, setErrorMessage] = useState()
 
-  // useEffect(() => {
-  //   const fetchLocation = () => {
-  //     fetch(`/api/Locations/${id}`)
-  //       .then((response) => response.json())
-  //       .then((apiData) => {
-  //         apiData.dateAcquired = apiData.dateAcquired.substr(0, 10)
-  //         apiData.lastUpdated = apiData.lastUpdated.substr(0, 10)
-  //         setNetworkDevice(apiData)
-  //       })
-  //   }
-  //   fetchNetworkDevice()
-  // }, [id])
 
   // Get Location by id
   useEffect(() => {
