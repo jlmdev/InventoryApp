@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { getUserId, isLoggedIn } from '../Auth'
 
 export function CreateUser() {
 
@@ -49,7 +50,7 @@ export function CreateUser() {
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Full Name
@@ -66,7 +67,7 @@ export function CreateUser() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Email
@@ -83,7 +84,7 @@ export function CreateUser() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Password
@@ -100,11 +101,13 @@ export function CreateUser() {
               onChange={handleFormFieldChange}
             />
           </div>
-
-          <button type="submit" className="btn btn-success btn-lg btn-block" onClick={handleFormSubmit}>
-            Save Changes
-          </button>
-          <button type="button" className="btn btn-danger btn-lg btn-block" onClick={handleCancelButton}>
+          {
+            isLoggedIn() && getUserId() === 1 &&
+            <button type="submit" className="btn btn-success btn-lg btn-block response-button" onClick={handleFormSubmit}>
+              Save Changes
+            </button>
+          }   
+          <button type="button" className="btn btn-danger btn-lg btn-block response-button" onClick={handleCancelButton}>
             Cancel
           </button>
         </div>
