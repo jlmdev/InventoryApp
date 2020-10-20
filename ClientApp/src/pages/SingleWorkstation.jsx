@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
+import { isLoggedIn } from '../Auth'
 
 export function SingleWorkstation() {
   const [workstation, setWorkstation] = useState({
@@ -250,13 +251,17 @@ export function SingleWorkstation() {
             </select>
           </div>
           
-              
+          {
+            isLoggedIn() &&    
           <button
             type="submit"
             className="btn btn-success btn-lg btn-block response-button"
           >
             Save Changes
           </button>
+          }
+          {
+            isLoggedIn() &&
           <button
             type="button"
             className="btn btn-danger btn-lg btn-block delete response-button"
@@ -264,6 +269,7 @@ export function SingleWorkstation() {
           >
             Delete
           </button>
+          }
         </div>
       </form>
     </>
