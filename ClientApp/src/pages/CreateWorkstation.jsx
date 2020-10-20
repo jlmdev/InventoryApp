@@ -56,7 +56,7 @@ export function CreateWorkstation() {
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Name
@@ -73,7 +73,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Serial Number
@@ -90,7 +90,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Date Acquired
@@ -107,7 +107,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Type
@@ -125,7 +125,7 @@ export function CreateWorkstation() {
             />
           </div>
 
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 OS
@@ -142,7 +142,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Processor
@@ -159,7 +159,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Last updated
@@ -176,7 +176,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Description
@@ -193,12 +193,12 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <button type="submit" className="btn btn-success btn-lg btn-block">
+          <button type="submit" className="btn btn-success btn-lg btn-block response-button">
             Save Changes
           </button>
           <button
             type="button"
-            className="btn btn-danger btn-lg btn-block"
+            className="btn btn-danger btn-lg btn-block response-button"
             onClick={handleCancelButton}
           >
             Cancel
