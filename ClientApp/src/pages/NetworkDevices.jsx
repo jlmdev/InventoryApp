@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { isLoggedIn } from '../Auth'
 
 export function NetworkDevices() {
   const [networkDevices, setNetworkDevices] = useState([])
@@ -55,11 +56,14 @@ export function NetworkDevices() {
             }}
           />
         </div>
-        <Link to="/create-network-device">
-          <button type="button" className="btn btn-primary btn-lg btn-block">
-            Create New Network Device
-          </button>
-        </Link>
+        {
+          isLoggedIn() &&
+          <Link to="/create-network-device">
+            <button type="button" className="btn btn-primary btn-lg btn-block">
+              Create New Network Device
+            </button>
+          </Link>
+        }
         {networkDevices.map((networkDevice) => (
           <Link key={networkDevice.id} to={`/network-devices/${networkDevice.id}`}>
             <button

@@ -57,11 +57,11 @@ export function Servers() {
         </div>
         {
           isLoggedIn() &&
-        <Link to="/create-server">
-          <button type="button" className="btn btn-primary btn-lg btn-block">
-            Create New Server
-          </button>
-        </Link>
+          <Link to="/create-server">
+            <button type="button" className="btn btn-primary btn-lg btn-block">
+              Create New Server
+            </button>
+          </Link>
         }
         {servers.map((server) => (
           <Link key={server.id} to={`/servers/${server.id}`}>

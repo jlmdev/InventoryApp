@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link, useHistory, useParams } from 'react-router-dom'
+import { isLoggedIn } from '../Auth'
 
 export function SingleServer() {
   const [server, setServer] = useState({
@@ -270,19 +271,25 @@ export function SingleServer() {
             />
           </div>
 
-          <button
-            type="submit"
-            className="btn btn-success btn-lg btn-block response-button"
-          >
-            Save Changes
-          </button>
-          <button
-            type="button"
-            className="btn btn-danger btn-lg btn-block delete response-button"
-            onClick={handleDeleteServer}
-          >
+          {
+            isLoggedIn() &&
+            <button
+              type="submit"
+              className="btn btn-success btn-lg btn-block response-button"
+            >
+              Save Changes
+            </button>
+          }
+          {
+            isLoggedIn() &&
+            <button
+              type="button"
+              className="btn btn-danger btn-lg btn-block delete response-button"
+              onClick={handleDeleteServer}
+            >
             Delete
-          </button>
+            </button>
+          }
         </div>
       </form>
     </>

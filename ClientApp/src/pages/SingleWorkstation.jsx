@@ -253,22 +253,22 @@ export function SingleWorkstation() {
           
           {
             isLoggedIn() &&    
-          <button
-            type="submit"
-            className="btn btn-success btn-lg btn-block response-button"
-          >
-            Save Changes
-          </button>
+            <button
+              type="submit"
+              className="btn btn-success btn-lg btn-block response-button"
+            >
+              Save Changes
+            </button>
           }
           {
             isLoggedIn() &&
-          <button
-            type="button"
-            className="btn btn-danger btn-lg btn-block delete response-button"
-            onClick={handleDeleteWorkstation}
-          >
-            Delete
-          </button>
+            <button
+              type="button"
+              className="btn btn-danger btn-lg btn-block delete response-button"
+              onClick={handleDeleteWorkstation}
+            >
+              Delete
+            </button>
           }
         </div>
       </form>
