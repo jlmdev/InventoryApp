@@ -5,6 +5,7 @@ import { isLoggedIn, logout } from '../Auth'
 
 export function Home() {
 
+  // Handles logout function
   function handleLogout() {
     logout()
 
@@ -13,6 +14,7 @@ export function Home() {
 
   return (
     <>
+      {/* Breadcrumb Navigation */}
       <div>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
@@ -22,6 +24,7 @@ export function Home() {
           </ol>
         </nav>
       </div>
+
       <div className="button-group">
         
         <Link to="/workstations">
@@ -29,7 +32,6 @@ export function Home() {
             Workstations
           </button>
         </Link>
-       
         <Link to="/servers">
           <button type="button" className="btn btn-secondary btn-lg btn-block">
             Servers
@@ -45,6 +47,7 @@ export function Home() {
             Locations
           </button>
         </Link>
+        {/* The buttons below require authentication to populate */}
         {
           isLoggedIn() &&
           <Link to="/users">
