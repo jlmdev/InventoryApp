@@ -47,11 +47,11 @@ export function Home() {
             Locations
           </button>
         </Link>
-        {/* <Link to="/users">
+        <Link to="/users">
           <button type="button" className="btn btn-info btn-lg btn-block">
             Users
           </button>
-        </Link> */}
+        </Link>
         {
           isLoggedIn() && 
           <Link to="/">
