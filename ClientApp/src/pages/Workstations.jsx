@@ -6,6 +6,7 @@ export function Workstations() {
   const [workstations, setWorkstations] = useState([])
   const [filterText, setFilterText] = useState('')
 
+  // applies filter to list if search bar is changed
   useEffect(
     function () {
       async function loadWorkstations() {
@@ -24,6 +25,7 @@ export function Workstations() {
 
   return (
     <>
+      {/* Breadcrumb Navigation */}
       <div>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
@@ -36,6 +38,8 @@ export function Workstations() {
           </ol>
         </nav>
       </div>
+
+      {/* Search Bar */}
       <div className="button-group">
         <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -55,6 +59,8 @@ export function Workstations() {
             }}
           />
         </div>
+
+        {/* Shows Create Workstation button if user is authenticated */}
         {
           isLoggedIn() &&
           <Link to="/create-workstation">
@@ -64,6 +70,7 @@ export function Workstations() {
           </Link>
         }
 
+        {/* Populates the list of workstations from the workstations table */}
         {workstations.map((workstation) => (
           <Link key={workstation.id} to={`/workstations/${workstation.id}`}>
             <button
