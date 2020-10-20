@@ -6,6 +6,7 @@ export function NetworkDevices() {
   const [networkDevices, setNetworkDevices] = useState([])
   const [filterText, setFilterText] = useState('')
 
+  // applies filter to list if search bar is changed 
   useEffect(
     function () {
       async function loadNetworkDevices() {
@@ -56,6 +57,7 @@ export function NetworkDevices() {
             }}
           />
         </div>
+        {/* Shows Create Network Devices button if user is authenticated */}
         {
           isLoggedIn() &&
           <Link to="/create-network-device">
@@ -64,6 +66,8 @@ export function NetworkDevices() {
             </button>
           </Link>
         }
+
+        {/* Populates the list of network devices from the NetworkDevices table */}
         {networkDevices.map((networkDevice) => (
           <Link key={networkDevice.id} to={`/network-devices/${networkDevice.id}`}>
             <button

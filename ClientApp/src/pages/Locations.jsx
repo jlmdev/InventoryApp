@@ -7,6 +7,7 @@ export function Locations() {
   const [locations, setLocations] = useState([])
   const [filterText, setFilterText] = useState('')
 
+  // applies filter to list if search bar is changed 
   useEffect(
     function () {
       async function loadLocations() {
@@ -57,6 +58,7 @@ export function Locations() {
             }}
           />
         </div>
+        {/* Shows Create Location button if user is authenticated */}
         {
           isLoggedIn() &&
           <Link to="/create-location">
@@ -65,6 +67,7 @@ export function Locations() {
             </button>
           </Link>
         }
+        {/* Populates the list of locations from the Locations table */}
         {locations.map((location) => (
           <Link key={location.id} to={`/locations/${location.id}`}>
             <button
