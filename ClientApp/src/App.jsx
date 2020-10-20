@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useReducer } from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import './custom.scss'
 import { Home } from './pages/Home'
@@ -20,6 +20,9 @@ import { Users } from './pages/Users'
 import { SingleUser } from './pages/SingleUser'
 import { CreateUser } from './pages/CreateUser'
 import { SignIn } from './pages/SignIn'
+import { getUser, isLoggedIn } from './Auth'
+
+const user = getUser()
 
 export function App() {
   return (
@@ -49,7 +52,7 @@ export function App() {
             <li>Inventory</li>
           </ul>
           <ul>
-            <li>UserName</li>
+            {(isLoggedIn() && <li>{user.fullName}</li>) || <li><Link to="/sign-in">Please sign in</Link></li>}
             <li>
               <svg
                 width="32px"
