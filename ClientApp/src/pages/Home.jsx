@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link, Redirect, Route } from 'react-router-dom'
-import { isLoggedIn, logout } from '../Auth'
+import { getUserId, isLoggedIn, logout } from '../Auth'
 
 
 export function Home() {
@@ -49,7 +49,7 @@ export function Home() {
         </Link>
         {/* The buttons below require authentication to populate */}
         {
-          isLoggedIn() &&
+          isLoggedIn() && getUserId() === 1 &&
           <Link to="/users">
             <button type="button" className="btn btn-info btn-lg btn-block">
               Users
