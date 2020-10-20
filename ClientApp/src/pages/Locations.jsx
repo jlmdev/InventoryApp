@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { isLoggedIn } from '../Auth'
 
 export function Locations() {
 
@@ -56,11 +57,14 @@ export function Locations() {
             }}
           />
         </div>
-        <Link to="/create-location">
-          <button type="button" className="btn btn-primary btn-lg btn-block">
-            Create New Location
-          </button>
-        </Link>
+        {
+          isLoggedIn() &&
+          <Link to="/create-location">
+            <button type="button" className="btn btn-primary btn-lg btn-block">
+              Create New Location
+            </button>
+          </Link>
+        }
         {locations.map((location) => (
           <Link key={location.id} to={`/locations/${location.id}`}>
             <button
