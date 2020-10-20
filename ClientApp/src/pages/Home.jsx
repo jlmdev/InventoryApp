@@ -40,18 +40,19 @@ export function Home() {
             Network
           </button>
         </Link>
-        
-        
         <Link to="/locations">
           <button type="button" className="btn btn-warning btn-lg btn-block">
             Locations
           </button>
         </Link>
-        <Link to="/users">
-          <button type="button" className="btn btn-info btn-lg btn-block">
-            Users
-          </button>
-        </Link>
+        {
+          isLoggedIn() &&
+          <Link to="/users">
+            <button type="button" className="btn btn-info btn-lg btn-block">
+              Users
+            </button>
+          </Link>
+        }
         {
           isLoggedIn() && 
           <Link to="/">
