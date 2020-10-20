@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { isLoggedIn } from '../Auth'
 
 export function Servers() {
   const [servers, setServers] = useState([])
@@ -54,11 +55,14 @@ export function Servers() {
             }}
           />
         </div>
+        {
+          isLoggedIn() &&
         <Link to="/create-server">
           <button type="button" className="btn btn-primary btn-lg btn-block">
             Create New Server
           </button>
         </Link>
+        }
         {servers.map((server) => (
           <Link key={server.id} to={`/servers/${server.id}`}>
             <button
