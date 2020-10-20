@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
+import { isLoggedIn } from '../Auth'
 
 export function Workstations() {
   const [workstations, setWorkstations] = useState([])
@@ -54,11 +55,14 @@ export function Workstations() {
             }}
           />
         </div>
-        <Link to="/create-workstation">
-          <button type="button" className="btn btn-primary btn-lg btn-block">
-            Create New Workstation
-          </button>
-        </Link>
+        {
+          isLoggedIn() &&
+          <Link to="/create-workstation">
+            <button type="button" className="btn btn-primary btn-lg btn-block">
+              Create New Workstation
+            </button>
+          </Link>
+        }
 
         {workstations.map((workstation) => (
           <Link key={workstation.id} to={`/workstations/${workstation.id}`}>
