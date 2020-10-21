@@ -1,8 +1,10 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
+import { isLoggedIn } from '../Auth'
 
 export function CreateLocation() {
 
+  // Location Data
   const [newLocation, setNewLocation] = useState({
     name: '',
     street1: '',
@@ -12,10 +14,13 @@ export function CreateLocation() {
     zip: '',
   })
 
+  // Error Message
   const [errorMessage, seterrorMessage] = useState()
 
+  // Allows use of history.push for navigation
   const history = useHistory()
 
+  // stores the values of changed fields
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -25,6 +30,7 @@ export function CreateLocation() {
     setNewLocation(updatedLocation)
   }
 
+  // Form submission. POSTs new location to the table. Shows errors if necessary.
   async function handleFormSubmit(event) {
     event.preventDefault()
 
@@ -44,6 +50,7 @@ export function CreateLocation() {
     }
   }
 
+  // Cancels operation
   function handleCancelButton(event) {
     history.push('/locations')
   }
@@ -53,7 +60,7 @@ export function CreateLocation() {
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Name
@@ -70,7 +77,8 @@ export function CreateLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Street 1
@@ -87,7 +95,8 @@ export function CreateLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Street 2
@@ -104,7 +113,8 @@ export function CreateLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 City
@@ -121,7 +131,8 @@ export function CreateLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 State
@@ -138,7 +149,8 @@ export function CreateLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 ZIP
@@ -155,13 +167,18 @@ export function CreateLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
-  
-          <button type="submit" className="btn btn-success btn-lg btn-block">
-            Save Changes
-          </button>
+
+          {/* Submits form to save changes if user is authenticated */}
+          {
+            isLoggedIn() &&
+            <button type="submit" className="btn btn-success btn-lg btn-block response-button">
+              Save Changes
+            </button>
+          }
+          
           <button
             type="button"
-            className="btn btn-danger btn-lg btn-block"
+            className="btn btn-danger btn-lg btn-block response-button"
             onClick={handleCancelButton}
           >
             Cancel
