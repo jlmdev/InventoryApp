@@ -57,7 +57,7 @@ export function CreateWorkstation() {
     setNewWorkstation(updatedWorkstation)
   }
 
-  // POSTs the new workstation or returns errors
+  // POSTs the new workstation and redirects to workstations page or returns errors
   async function handleFormSubmit(event) {
     event.preventDefault()
 

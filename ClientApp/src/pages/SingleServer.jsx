@@ -3,6 +3,8 @@ import { Link, useHistory, useParams } from 'react-router-dom'
 import { isLoggedIn } from '../Auth'
 
 export function SingleServer() {
+
+  // Server State
   const [server, setServer] = useState({
     name: '',
     serial: '',
@@ -22,6 +24,7 @@ export function SingleServer() {
   const history = useHistory()
   const [errorMessage, setErrorMessage] = useState()
 
+  // Loads Server Data
   useEffect(() => {
     const fetchServer = () => {
       fetch(`/api/Servers/${id}`)
@@ -35,6 +38,7 @@ export function SingleServer() {
     fetchServer()
   }, [id])
 
+  // Updates Server State when non numeric fields are changed
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -44,6 +48,7 @@ export function SingleServer() {
     setServer(updatedServer)
   }
 
+  // PUTs the updated information to the database
   async function handleFormSubmit(event) {
     event.preventDefault()
 
@@ -54,6 +59,7 @@ export function SingleServer() {
     })
   }
 
+  // DELETEs the server
   async function handleDeleteServer(event) {
     event.preventDefault()
 
@@ -66,6 +72,7 @@ export function SingleServer() {
 
   return (
     <>
+      {/* Breadcrumb Navigation */}
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -79,6 +86,7 @@ export function SingleServer() {
           </li>
         </ol>
       </nav>
+
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
@@ -98,6 +106,7 @@ export function SingleServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -114,6 +123,7 @@ export function SingleServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -130,6 +140,7 @@ export function SingleServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -163,6 +174,7 @@ export function SingleServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -178,20 +190,7 @@ export function SingleServer() {
               onChange={handleFormFieldChange}
             />
           </div>
-          {/* <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Processor
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Processor"
-            aria-label="Processor"
-            aria-describedby="basic-addon1"
-          />
-        </div> */}
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -208,20 +207,7 @@ export function SingleServer() {
               onChange={handleFormFieldChange}
             />
           </div>
-          {/* <div className="input-group mb-3 input-div">
-          <div className="input-group-prepend">
-            <span className="input-group-text" id="basic-addon1">
-              Active
-            </span>
-          </div>
-          <input
-            type="text"
-            className="form-control"
-            placeholder="Active"
-            aria-label="Active"
-            aria-describedby="basic-addon1"
-          />
-        </div> */}
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -238,6 +224,7 @@ export function SingleServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -254,6 +241,7 @@ export function SingleServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -271,7 +259,8 @@ export function SingleServer() {
             />
           </div>
 
-          {
+          {/* In main mode, requires login to make changes */}
+          {/* {
             isLoggedIn() &&
             <button
               type="submit"
@@ -279,7 +268,16 @@ export function SingleServer() {
             >
               Save Changes
             </button>
-          }
+          } */}
+
+          {/* Allow non signed in users to make changes for demo mode */}
+          <button
+            type="submit"
+            className="btn btn-success btn-lg btn-block response-button"
+          >
+            Save Changes
+          </button>
+
           {
             isLoggedIn() &&
             <button

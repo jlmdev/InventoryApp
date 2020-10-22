@@ -61,14 +61,21 @@ export function Servers() {
         </div>
 
         {/* Shows Create Server button if user is authenticated */}
-        {
+        {/* {
           isLoggedIn() &&
           <Link to="/create-server">
             <button type="button" className="btn btn-primary btn-lg btn-block">
               Create New Server
             </button>
           </Link>
-        }
+        } */}
+
+        {/* Demo mode allows creating servers without signing in */}
+        <Link to="/create-server">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            Create New Server
+          </button>
+        </Link>
 
         {/* Populates the list of servers from the servers table */}
         {servers.map((server) => (

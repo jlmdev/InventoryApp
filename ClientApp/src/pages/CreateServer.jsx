@@ -4,6 +4,7 @@ import { useHistory } from 'react-router-dom'
 export function CreateServer() {
   const today = new Date().toISOString().substr(0, 10)
 
+  // New Server State
   const [newServer, setNewServer] = useState({
     name: '',
     serial: '',
@@ -17,10 +18,13 @@ export function CreateServer() {
     gateway: '',
   })
 
+  // Error Message State
   const [errorMessage, seterrorMessage] = useState()
 
+  // allows redirect
   const history = useHistory()
 
+  // Updates New Server state when fields are changed
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -30,6 +34,7 @@ export function CreateServer() {
     setNewServer(updatedServer)
   }
 
+  // POSTs the new server and redirects to server page or returns errors
   async function handleFormSubmit(event) {
     event.preventDefault()
 
@@ -49,6 +54,7 @@ export function CreateServer() {
     }
   }
 
+  // redirects to the main server page
   function handleCancelButton(event) {
     history.push('/servers')
   }
@@ -75,6 +81,7 @@ export function CreateServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -92,6 +99,7 @@ export function CreateServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -109,6 +117,7 @@ export function CreateServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -126,6 +135,7 @@ export function CreateServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -143,6 +153,7 @@ export function CreateServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -160,6 +171,7 @@ export function CreateServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -177,6 +189,7 @@ export function CreateServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -194,6 +207,7 @@ export function CreateServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -211,6 +225,7 @@ export function CreateServer() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -232,6 +247,7 @@ export function CreateServer() {
           <button type="submit" className="btn btn-success btn-lg btn-block">
             Save Changes
           </button>
+
           <button
             type="button"
             className="btn btn-danger btn-lg btn-block"

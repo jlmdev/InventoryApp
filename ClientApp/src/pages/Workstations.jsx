@@ -61,14 +61,14 @@ export function Workstations() {
         </div>
 
         {/* Shows Create Workstation button if user is authenticated */}
-        {
+        {/* {
           isLoggedIn() &&
           <Link to="/create-workstation">
             <button type="button" className="btn btn-primary btn-lg btn-block">
               Create New Workstation
             </button>
           </Link>
-        }
+        } */}
 
           {/* Demo mode allows creating workstation without signing in */}
           <Link to="/create-workstation">
