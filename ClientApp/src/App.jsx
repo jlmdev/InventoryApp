@@ -52,7 +52,7 @@ export function App() {
             <li>Inventory</li>
           </ul>
           <ul>
-            {(isLoggedIn() && <li>{user.fullName}</li>) || <li><Link to="/sign-in">Please sign in</Link></li>}
+            {(isLoggedIn() && <li>{user.fullName}</li>) || <li><Link to="/sign-in">Demo</Link></li>}
             <li>
               <svg
                 width="32px"
