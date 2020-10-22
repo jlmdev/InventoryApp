@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import { isLoggedIn } from '../Auth'
 
 export function NetworkDevices() {
+
   const [networkDevices, setNetworkDevices] = useState([])
   const [filterText, setFilterText] = useState('')
 
@@ -38,6 +39,8 @@ export function NetworkDevices() {
           </ol>
         </nav>
       </div>
+
+      {/* Search Bar */}
       <div className="button-group">
       <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -57,15 +60,23 @@ export function NetworkDevices() {
             }}
           />
         </div>
+
         {/* Shows Create Network Devices button if user is authenticated */}
-        {
+        {/* {
           isLoggedIn() &&
           <Link to="/create-network-device">
             <button type="button" className="btn btn-primary btn-lg btn-block">
               Create New Network Device
             </button>
           </Link>
-        }
+        } */}
+
+        {/* Allows creation of network devices in demo mode */}
+        <Link to="/create-network-device">
+            <button type="button" className="btn btn-primary btn-lg btn-block">
+              Create New Network Device
+            </button>
+        </Link>
 
         {/* Populates the list of network devices from the NetworkDevices table */}
         {networkDevices.map((networkDevice) => (

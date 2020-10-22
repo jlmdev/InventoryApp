@@ -4,22 +4,26 @@ import { useHistory } from 'react-router-dom'
 export function CreateNetworkDevice() {
   const today = new Date().toISOString().substr(0, 10)
 
+  // New Network Device State
   const [newNetworkDevice, setNewNetworkDevice] = useState({
     name: '',
     serial: '',
     type: '',
     description: '',
     dateAcquired: today,
-    lastUpdate: today,
+    lastUpdated: today,
     ip: '',
     subnet: '',
     gateway: '',
   })
 
+  // Error Message State
   const [errorMessage, seterrorMessage] = useState()
 
+  // allows redirect
   const history = useHistory()
 
+  // Updates New Network Device State when fields are changed
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -29,6 +33,7 @@ export function CreateNetworkDevice() {
     setNewNetworkDevice(updatedNetworkDevice)
   }
 
+  // POSTs the new network device and redirects to Network Devices page or returns errors
   async function handleFormSubmit(event) {
     event.preventDefault()
 
@@ -48,6 +53,7 @@ export function CreateNetworkDevice() {
     }
   }
 
+  // redirects to main network devices page
   function handleCancelButton(event) {
     history.push('/network-devices')
   }
@@ -57,7 +63,7 @@ export function CreateNetworkDevice() {
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
-          <div className="input-group mb-3">
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Name
@@ -74,7 +80,8 @@ export function CreateNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Serial Number
@@ -91,7 +98,8 @@ export function CreateNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Date Acquired
@@ -108,7 +116,8 @@ export function CreateNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Description
@@ -125,7 +134,8 @@ export function CreateNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Last updated
@@ -137,12 +147,13 @@ export function CreateNetworkDevice() {
               placeholder="Last updated"
               aria-label="Last updated"
               aria-describedby="basic-addon1"
-              value={newNetworkDevice.lastUpdate}
-              name="lastUpdate"
+              value={newNetworkDevice.lastUpdated}
+              name="lastUpdated"
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 IP
@@ -159,7 +170,8 @@ export function CreateNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Subnet
@@ -176,7 +188,8 @@ export function CreateNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
-          <div className="input-group mb-3">
+
+          <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
                 Gateway
@@ -194,12 +207,13 @@ export function CreateNetworkDevice() {
             />
           </div>
 
-          <button type="submit" className="btn btn-success btn-lg btn-block">
+          <button type="submit" className="btn btn-success btn-lg btn-block response-button">
             Save Changes
           </button>
+          
           <button
             type="button"
-            className="btn btn-danger btn-lg btn-block"
+            className="btn btn-danger btn-lg btn-block response-button"
             onClick={handleCancelButton}
           >
             Cancel

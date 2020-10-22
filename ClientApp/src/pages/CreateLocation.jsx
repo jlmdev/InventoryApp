@@ -17,7 +17,7 @@ export function CreateLocation() {
   // Error Message
   const [errorMessage, seterrorMessage] = useState()
 
-  // Allows use of history.push for navigation
+  // Allows redirect
   const history = useHistory()
 
   // stores the values of changed fields
@@ -50,7 +50,7 @@ export function CreateLocation() {
     }
   }
 
-  // Cancels operation
+  // redirects to main locations page
   function handleCancelButton(event) {
     history.push('/locations')
   }
@@ -168,13 +168,18 @@ export function CreateLocation() {
             />
           </div>
 
-          {/* Submits form to save changes if user is authenticated */}
-          {
+          {/* Submits form to save changes if user is authenticated in main mode*/}
+          {/* {
             isLoggedIn() &&
             <button type="submit" className="btn btn-success btn-lg btn-block response-button">
               Save Changes
             </button>
-          }
+          } */}
+
+          {/* Allows saving locations in demo mode */}
+          <button type="submit" className="btn btn-success btn-lg btn-block response-button">
+            Save Changes
+          </button>
           
           <button
             type="button"

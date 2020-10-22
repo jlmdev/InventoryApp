@@ -3,6 +3,8 @@ import { Link, useHistory, useParams } from 'react-router-dom'
 import { isLoggedIn } from '../Auth'
 
 export function SingleNetworkDevice() {
+
+  // Network Device State
   const [networkDevice, setNetworkDevice] = useState({
     name: '',
     serial: '',
@@ -21,6 +23,7 @@ export function SingleNetworkDevice() {
   const history = useHistory()
   const [errorMessage, setErrorMessage] = useState()
 
+  // Loads Network Device Data
   useEffect(() => {
     const fetchNetworkDevice = () => {
       fetch(`/api/NetworkDevices/${id}`)
@@ -34,6 +37,7 @@ export function SingleNetworkDevice() {
     fetchNetworkDevice()
   }, [id])
 
+  // Updates Network Device State when fields are changed
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -43,6 +47,7 @@ export function SingleNetworkDevice() {
     setNetworkDevice(updatedNetworkDevice)
   }
 
+  // PUTs the updated information to the database
   async function handleFormSubmit(event) {
     event.preventDefault()
 
@@ -53,6 +58,7 @@ export function SingleNetworkDevice() {
     })
   }
 
+  // DELETEs the network device
   async function handleDeleteNetworkDevice(event) {
     event.preventDefault()
 
@@ -65,6 +71,7 @@ export function SingleNetworkDevice() {
 
   return (
     <>
+    {/* Breadcrumb Navigation */}
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -78,6 +85,7 @@ export function SingleNetworkDevice() {
           </li>
         </ol>
       </nav>
+
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
@@ -97,6 +105,7 @@ export function SingleNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -113,6 +122,7 @@ export function SingleNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -129,6 +139,7 @@ export function SingleNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -145,6 +156,7 @@ export function SingleNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -161,6 +173,7 @@ export function SingleNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -177,6 +190,7 @@ export function SingleNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -193,6 +207,7 @@ export function SingleNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -209,6 +224,7 @@ export function SingleNetworkDevice() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -226,14 +242,23 @@ export function SingleNetworkDevice() {
             />
           </div>
           
-          {
+          {/* In main mode, requires login to make changes */}
+          {/* {
             isLoggedIn() &&
             <button 
               type="submit" 
               className="btn btn-success btn-lg btn-block response-button">
               Save Changes
             </button>
-          }
+          } */}
+
+          {/* Allow non signed in users to make changes for demo mode */}
+          <button 
+            type="submit" 
+            className="btn btn-success btn-lg btn-block response-button">
+            Save Changes
+          </button>
+
           {
             isLoggedIn() &&
             <button 

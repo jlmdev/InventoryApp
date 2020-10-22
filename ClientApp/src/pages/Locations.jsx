@@ -39,6 +39,8 @@ export function Locations() {
           </ol>
         </nav>
       </div>
+
+      {/* Search Bar */}
       <div className="button-group">
       <div className="input-group mb-3">
           <div className="input-group-prepend">
@@ -58,15 +60,24 @@ export function Locations() {
             }}
           />
         </div>
+
         {/* Shows Create Location button if user is authenticated */}
-        {
+        {/* {
           isLoggedIn() &&
           <Link to="/create-location">
             <button type="button" className="btn btn-primary btn-lg btn-block">
               Create New Location
             </button>
           </Link>
-        }
+        } */}
+
+        {/* Allows creation of locations in demo mode */}
+        <Link to="/create-location">
+          <button type="button" className="btn btn-primary btn-lg btn-block">
+            Create New Location
+          </button>
+        </Link>
+
         {/* Populates the list of locations from the Locations table */}
         {locations.map((location) => (
           <Link key={location.id} to={`/locations/${location.id}`}>

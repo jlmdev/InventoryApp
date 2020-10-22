@@ -25,7 +25,7 @@ export function SingleLocation() {
   const [errorMessage, setErrorMessage] = useState()
 
 
-  // Get Location by id
+  // Loads Location Data by id
   useEffect(() => {
     async function fetchLocation() {
       const response = await fetch(`/api/Locations/${id}`)
@@ -37,7 +37,7 @@ export function SingleLocation() {
     fetchLocation()
   }, [id])
 
-  // handle field edits
+  // Updates Location State when fields are changed
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -47,7 +47,7 @@ export function SingleLocation() {
     setLocation(updatedLocation)
   }
 
-  // handle form submission to save changes
+  // PUTs the updated information to the database
   async function handleFormSubmit(event) {
     event.preventDefault()
 
@@ -58,7 +58,7 @@ export function SingleLocation() {
     })
   }
 
-  // handle deletion
+  // Deletes the location
   async function handleDeleteLocation(event) {
     event.preventDefault()
 
@@ -70,7 +70,8 @@ export function SingleLocation() {
   }
 
   return (
-    <>    
+    <>
+        {/* Breadcrumb Navigation */}
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -84,6 +85,7 @@ export function SingleLocation() {
           </li>
         </ol>
       </nav>
+
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
@@ -103,6 +105,7 @@ export function SingleLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -119,6 +122,7 @@ export function SingleLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -135,6 +139,7 @@ export function SingleLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -151,6 +156,7 @@ export function SingleLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -167,6 +173,7 @@ export function SingleLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -183,14 +190,24 @@ export function SingleLocation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          {
+
+          {/* In main mode, requires login to make changes */}
+          {/* {
             isLoggedIn() &&
             <button 
               type="submit" 
               className="btn btn-success btn-lg btn-block response-button">
               Save Changes
             </button>
-          }
+          } */}
+
+          {/* Allow non signed in users to make changes for demo mode */}
+          <button 
+            type="submit" 
+            className="btn btn-success btn-lg btn-block response-button">
+            Save Changes
+          </button>
+
           {
             isLoggedIn() &&
             <button 
