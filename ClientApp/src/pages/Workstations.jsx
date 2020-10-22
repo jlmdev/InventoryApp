@@ -70,6 +70,15 @@ export function Workstations() {
           </Link>
         }
 
+          {/* Demo mode allows creating workstation without signing in */}
+          <Link to="/create-workstation">
+            <button type="button" className="btn btn-primary btn-lg btn-block">
+              Create New Workstation
+            </button>
+          </Link>
+
+
+
         {/* Populates the list of workstations from the workstations table */}
         {workstations.map((workstation) => (
           <Link key={workstation.id} to={`/workstations/${workstation.id}`}>

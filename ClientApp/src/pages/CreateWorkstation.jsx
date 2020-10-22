@@ -1,9 +1,12 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useHistory } from 'react-router-dom'
 
 export function CreateWorkstation() {
   const today = new Date().toISOString().substr(0, 10)
 
+  const [locations, setLocations] = useState([])
+
+  // New Workstation State
   const [newWorkstation, setNewWorkstation] = useState({
     name: '',
     serial: '',
@@ -13,12 +16,30 @@ export function CreateWorkstation() {
     os: '',
     lastUpdate: today,
     type: '',
+    locationId: '',
   })
 
+  // Loads Locations from Locations table
+  useEffect(
+    function () {
+      async function loadLocations() {
+        const url = `/api/Locations`
+        const response = await fetch(url)
+        const json = await response.json()
+        setLocations(json)
+      }
+      loadLocations()
+    },
+    []
+  )
+
+  // Error Message State
   const [errorMessage, seterrorMessage] = useState()
 
+  // allows redirect
   const history = useHistory()
 
+  // Updates New Workstation State when non numeric fields are changed
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -28,6 +49,15 @@ export function CreateWorkstation() {
     setNewWorkstation(updatedWorkstation)
   }
 
+  // Updates New Workstation State when numeric fields are changed
+  function handleNumericFormFieldChange(event) {
+    const value = Number(event.target.value)
+    const fieldName = event.target.name
+    const updatedWorkstation = { ...newWorkstation, [fieldName]: value }
+    setNewWorkstation(updatedWorkstation)
+  }
+
+  // POSTs the new workstation or returns errors
   async function handleFormSubmit(event) {
     event.preventDefault()
 
@@ -47,6 +77,7 @@ export function CreateWorkstation() {
     }
   }
 
+  // redirects to main workstations page
   function handleCancelButton(event) {
     history.push('/workstations')
   }
@@ -73,6 +104,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -90,6 +122,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -107,6 +140,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -142,6 +176,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -159,6 +194,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -176,6 +212,7 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -193,9 +230,27 @@ export function CreateWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
+          <div className="input-group mb-3 input-div">
+            <div className="input-group-prepend">
+              <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
+            </div>
+            <select className="custom-select" id="inputGroupSelect01" name="locationId" value={newWorkstation.locationId} onChange={handleNumericFormFieldChange}>
+            {
+                locations.map((location) => (
+                  <option value={location.id} key={location.id}>
+                    {location.name}
+                  </option>
+                ))
+              }
+              
+            </select>
+          </div>
+
           <button type="submit" className="btn btn-success btn-lg btn-block response-button">
             Save Changes
           </button>
+          
           <button
             type="button"
             className="btn btn-danger btn-lg btn-block response-button"

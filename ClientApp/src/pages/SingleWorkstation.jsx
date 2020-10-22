@@ -3,6 +3,8 @@ import { Link, useHistory, useParams } from 'react-router-dom'
 import { isLoggedIn } from '../Auth'
 
 export function SingleWorkstation() {
+
+  // Workstation State
   const [workstation, setWorkstation] = useState({
     name: '',
     serial: '',
@@ -15,6 +17,7 @@ export function SingleWorkstation() {
     locationId: ''
   })
 
+  // Location State
   const [locations, setLocations] = useState([])
 
   const params = useParams()
@@ -23,6 +26,7 @@ export function SingleWorkstation() {
   const history = useHistory()
   const [errorMessage, setErrorMessage] = useState()
 
+  // Loads Workstation Data
   useEffect(() => {
     const fetchWorkstation = () => {
       fetch(`/api/Workstations/${id}`)
@@ -36,6 +40,7 @@ export function SingleWorkstation() {
     fetchWorkstation()
   }, [id])
 
+  // Loads Location Data
   useEffect(
     function () {
       async function loadLocations() {
@@ -49,6 +54,7 @@ export function SingleWorkstation() {
     []
   )
 
+  // Updates Workstation State when non numeric fields are changed
   function handleFormFieldChange(event) {
     const value = event.target.value
     const fieldName = event.target.name
@@ -58,6 +64,7 @@ export function SingleWorkstation() {
     setWorkstation(updatedWorkstation)
   }
 
+  // Updates Workstation State when numeric fields are changed
   function handleNumericFormFieldChange(event) {
     const value = Number(event.target.value)
     const fieldName = event.target.name
@@ -65,6 +72,7 @@ export function SingleWorkstation() {
     setWorkstation(updatedWorkstation)
   }
 
+  // PUTs the updated information to the database
   async function handleFormSubmit(event) {
     event.preventDefault()
 
@@ -75,6 +83,7 @@ export function SingleWorkstation() {
     })
   }
 
+  // DELETEs the workstation
   async function handleDeleteWorkstation(event) {
     event.preventDefault()
 
@@ -85,9 +94,11 @@ export function SingleWorkstation() {
     }
   }
 
-  console.log(workstation.locationId)
+  // test for location selection
+  // console.log(workstation.locationId)
   return (
     <>
+    {/* Breadcrumb Navigation */}
       <nav aria-label="breadcrumb">
         <ol className="breadcrumb">
           <li className="breadcrumb-item">
@@ -101,6 +112,7 @@ export function SingleWorkstation() {
           </li>
         </ol>
       </nav>
+
       <form onSubmit={handleFormSubmit}>
         {errorMessage && <p>{errorMessage}</p>}
         <div className="button-group">
@@ -120,6 +132,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -136,6 +149,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -152,6 +166,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -185,6 +200,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -201,6 +217,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <span className="input-group-text" id="basic-addon1">
@@ -234,7 +251,7 @@ export function SingleWorkstation() {
               onChange={handleFormFieldChange}
             />
           </div>
-          {/* Testing Location button */}
+
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
               <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
@@ -251,7 +268,8 @@ export function SingleWorkstation() {
             </select>
           </div>
           
-          {
+          {/* In main mode, requires login to make changes */}
+          {/* {
             isLoggedIn() &&    
             <button
               type="submit"
@@ -259,7 +277,16 @@ export function SingleWorkstation() {
             >
               Save Changes
             </button>
-          }
+          } */}
+
+            {/* Allow non signed in users to make changes for demo mode */}
+            <button   
+              type="submit"
+              className="btn btn-success btn-lg btn-block response-button"
+            >
+              Save Changes
+            </button>
+
           {
             isLoggedIn() &&
             <button
