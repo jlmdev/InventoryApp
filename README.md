@@ -13,6 +13,6 @@ The pages of the application that are accessible to everyone are:
 - Network
 - Locations
 
-![home page] (../Readme-Images/home-screen.png)
+![home page] (../Readme-Images/home-screen.png?raw=true)
 
 ## Workstations
