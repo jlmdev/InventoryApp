@@ -254,7 +254,7 @@ export function SingleWorkstation() {
 
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">
-              <label className="input-group-text" htmlFor="inputGroupSelect01">Options</label>
+              <label className="input-group-text" htmlFor="inputGroupSelect01">Location</label>
             </div>
             <select className="custom-select" id="inputGroupSelect01" name="locationId" value={workstation.locationId} onChange={handleNumericFormFieldChange}>
             {
