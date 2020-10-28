@@ -1,4 +1,4 @@
-import React, { useReducer } from 'react'
+import React from 'react'
 import { Link, Route, Switch } from 'react-router-dom'
 import './custom.scss'
 import { Home } from './pages/Home'

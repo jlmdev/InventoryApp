@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { isLoggedIn } from '../Auth'
 
 export function SingleServer() {
@@ -21,8 +21,9 @@ export function SingleServer() {
   const params = useParams()
   const id = params.id
 
-  const history = useHistory()
-  const [errorMessage, setErrorMessage] = useState()
+  // Maintaining for future development
+  // const history = useHistory()
+  // const [errorMessage, setErrorMessage] = useState()
 
   // Loads Server Data
   useEffect(() => {
@@ -52,7 +53,7 @@ export function SingleServer() {
   async function handleFormSubmit(event) {
     event.preventDefault()
 
-    const response = await fetch(`/api/Servers/${id}`, {
+    await fetch(`/api/Servers/${id}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(server),
@@ -64,7 +65,7 @@ export function SingleServer() {
     event.preventDefault()
 
     if (window.confirm('Are you sure you want to delete this?')) {
-      const response = await fetch(`/api/Servers/${id}`, {
+      await fetch(`/api/Servers/${id}`, {
         method: 'DELETE',
       })
     }
@@ -88,7 +89,8 @@ export function SingleServer() {
       </nav>
 
       <form onSubmit={handleFormSubmit}>
-        {errorMessage && <p>{errorMessage}</p>}
+        {/* Maintaining for future development */}
+        {/* {errorMessage && <p>{errorMessage}</p>} */}
         <div className="button-group">
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">

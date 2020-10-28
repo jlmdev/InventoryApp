@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useHistory } from 'react-router-dom'
-import { isLoggedIn } from '../Auth'
+// Disabled for demo mode
+// import { isLoggedIn } from '../Auth'
 
 export function CreateLocation() {
 

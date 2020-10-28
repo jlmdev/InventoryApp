@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory, useParams } from 'react-router-dom'
+import { Link, useParams } from 'react-router-dom'
 import { isLoggedIn } from '../Auth'
 
 export function SingleLocation() {
@@ -19,10 +19,10 @@ export function SingleLocation() {
   const id = params.id
 
   // Hook for relocation
-  const history = useHistory()
+  // const history = useHistory()
 
   // Pass error messages from Controller if present
-  const [errorMessage, setErrorMessage] = useState()
+  // const [errorMessage, setErrorMessage] = useState()
 
 
   // Loads Location Data by id
@@ -51,7 +51,7 @@ export function SingleLocation() {
   async function handleFormSubmit(event) {
     event.preventDefault()
 
-    const response = await fetch(`/api/Locations/${id}`, {
+    await fetch(`/api/Locations/${id}`, {
       method: 'PUT',
       headers: { 'content-type': 'application/json' },
       body: JSON.stringify(location),
@@ -63,7 +63,7 @@ export function SingleLocation() {
     event.preventDefault()
 
     if (window.confirm('Are you sure you want to delete this?')) {
-      const response = await fetch(`/api/Locations/${id}`, {
+      await fetch(`/api/Locations/${id}`, {
         method: 'DELETE',
       })
     }
@@ -87,7 +87,8 @@ export function SingleLocation() {
       </nav>
 
       <form onSubmit={handleFormSubmit}>
-        {errorMessage && <p>{errorMessage}</p>}
+        {/* Maintaining for future feature */}
+        {/* {errorMessage && <p>{errorMessage}</p>} */}
         <div className="button-group">
           <div className="input-group mb-3 input-div">
             <div className="input-group-prepend">

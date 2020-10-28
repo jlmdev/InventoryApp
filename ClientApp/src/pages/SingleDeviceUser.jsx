@@ -1,13 +1,15 @@
 import React from 'react'
+// Maintaining inactive code for future development
+// import {Link} from 'react-router-dom'
 
 export function SingleDeviceUser() {
   return (
     <>
       <div>
-        <nav aria-label="breadcrumb">
+        {/* <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
-              <a href="#">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li className="breadcrumb-item">
               <a href="#">Workstations</a>
@@ -16,7 +18,7 @@ export function SingleDeviceUser() {
               Single Workstation
             </li>
           </ol>
-        </nav>
+        </nav> */}
       </div>
       <div className="button-group">
         <div className="input-group mb-3">

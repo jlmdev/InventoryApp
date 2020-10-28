@@ -1,5 +1,5 @@
 import React from 'react'
-import { Link, Redirect, Route } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import { getUserId, isLoggedIn, logout } from '../Auth'
 
 

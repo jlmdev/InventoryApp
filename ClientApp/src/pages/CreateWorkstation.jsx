@@ -16,7 +16,7 @@ export function CreateWorkstation() {
     os: '',
     lastUpdate: today,
     type: '',
-    locationId: '',
+    locationId: 1,
   })
 
   // Loads Locations from Locations table
@@ -27,6 +27,7 @@ export function CreateWorkstation() {
         const response = await fetch(url)
         const json = await response.json()
         setLocations(json)
+        setNewWorkstation(workstation => ({...workstation, locationId: json[0].id}))
       }
       loadLocations()
     },
@@ -72,10 +73,14 @@ export function CreateWorkstation() {
     if (response.status === 400) {
       const message = Object.values(json.errors).join(' ')
       seterrorMessage(message)
+      console.log(newWorkstation)
     } else {
       history.push('/workstations')
     }
+
+    
   }
+
 
   // redirects to main workstations page
   function handleCancelButton(event) {

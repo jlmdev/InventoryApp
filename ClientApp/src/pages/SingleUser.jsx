@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react'
-import { Link, useHistory, useParams } from 'react-router-dom'
-import { authHeader, getUser, updateUserAuth, isLoggedIn, getUserId } from '../Auth'
+import { Link, useParams } from 'react-router-dom'
+import { authHeader, updateUserAuth, isLoggedIn, getUserId } from '../Auth'
 
 export function SingleUser() {
 
@@ -14,7 +14,8 @@ export function SingleUser() {
   const params = useParams()
   const id = params.id
 
-  const history = useHistory()
+  // Maintaining for future development
+  // const history = useHistory()
   const [errorMessage, setErrorMessage] = useState()
 
   useEffect(() => {
@@ -60,7 +61,7 @@ export function SingleUser() {
     event.preventDefault()
 
     if (window.confirm('Are you sure you want to delete this?')) {
-      const response = await fetch(`/api/Users/${id}`, {
+      await fetch(`/api/Users/${id}`, {
         method: 'DELETE',
       })
     }
@@ -139,13 +140,13 @@ export function SingleUser() {
           
           {
             isLoggedIn() &&
-            <button type="submit" className="btn btn-success btn-lg btn-block response-button">
+            <button type="submit" className="btn btn-success btn-lg btn-block response-button" onClick={handleFormSubmit}>
               Save Changes
             </button>
           }
           {
             isLoggedIn() && getUserId() === 1 &&
-            <button type="button" className="btn btn-danger btn-lg btn-block response-button delete">
+            <button type="button" className="btn btn-danger btn-lg btn-block response-button delete" onClick={handleDeleteUser}>
               Delete
             </button>
           }

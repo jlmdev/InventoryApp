@@ -4,7 +4,8 @@ import { Link } from 'react-router-dom'
 export function DeviceUsers() {
   return (
     <>
-      <div>
+    {/* Maintaining for future development */}
+      {/* <div>
         <nav aria-label="breadcrumb">
           <ol className="breadcrumb">
             <li className="breadcrumb-item">
@@ -15,7 +16,7 @@ export function DeviceUsers() {
             </li>
           </ol>
         </nav>
-      </div>
+      </div> */}
       <div className="button-group">
         <Link to="/device-users/single-device-user">
           <button type="button" className="btn btn-primary btn-lg btn-block">

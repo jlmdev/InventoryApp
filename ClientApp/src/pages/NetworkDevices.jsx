@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import { Link } from 'react-router-dom'
-import { isLoggedIn } from '../Auth'
+// Disabled for demo mode
+// import { isLoggedIn } from '../Auth'
 
 export function NetworkDevices() {
 
